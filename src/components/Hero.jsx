@@ -160,7 +160,7 @@ export default function Hero() {
             className="group mb-6 inline-flex items-center gap-2 rounded-full glass glass-hover px-4 py-1.5 font-mono text-xs tracking-widest text-electric-bright"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-electric" />
-            FOUNDER OF CODYZA
+            Co-FOUNDER OF CODYZA
             <ArrowUpRight
               size={13}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -194,7 +194,7 @@ export default function Hero() {
             className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg"
           >
             Crafting elegant, high-performance digital products across three
-            continents. Founder of{' '}
+            continents. Co-Founder of{' '}
             <a
               href={SOCIALS.codyza}
               target="_blank"
