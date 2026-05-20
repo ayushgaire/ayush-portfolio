@@ -5,6 +5,7 @@ import Particles from './components/Particles'
 import Loader from './components/Loader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ProfessionalWork from './components/ProfessionalWork'
 
 const About = lazy(() => import('./components/About'))
 const Education = lazy(() => import('./components/Education'))
@@ -52,6 +53,7 @@ export default function App() {
           <Education />
           <Skills />
           <Projects />
+          <ProfessionalWork />
           <Experience />
           <Leadership />
           <Achievements />
@@ -60,6 +62,7 @@ export default function App() {
           <Footer />
         </Suspense>
       </motion.main>
+      
     </>
   )
 }
