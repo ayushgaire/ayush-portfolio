@@ -1,3 +1,18 @@
+// All portfolio content centralized for easy maintenance
+
+export const SOCIALS = {
+    linkedin: 'https://www.linkedin.com/in/ayush-gaire-399937280',
+    linkedinAlt: 'https://share.google/zm3EEzHKPYu55Z5OR',
+    github: 'https://github.com/',
+    instagram: 'https://www.instagram.com/aayushgairay',
+    facebook: 'https://share.google/CLOj8erixElCQveqe',
+    email: 'aayushgairay143@gmail.com',
+    phone: '+15078179236',
+    medium: 'https://medium.com/@aayushgairay',
+    codyza: 'https://codyza.com/',
+    website: 'https://ayushgaire.com/',
+}
+
 export const NAV_LINKS = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
