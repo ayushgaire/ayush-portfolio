@@ -1,7 +1,29 @@
 import { motion } from 'framer-motion'
 import { Briefcase, MapPin } from 'lucide-react'
 import { Section, SectionHeader } from './Section'
-import { EXPERIENCE } from '../data/content'
+
+const EXPERIENCE = [
+  {
+    role: 'Public Safety Assistant',
+    org: 'Southwest Minnesota State University Public Safety',
+    location: 'Marshall, MN',
+    period: 'Jan 2025 — Apr 2025',
+  },
+
+  {
+    role: 'Student Worker',
+    org: 'Chartwells Higher Education Dining Services',
+    location: 'Marshall, MN',
+    period: 'Sept 2024 — May 2025',
+  },
+
+  {
+    role: 'Restaurant Manager',
+    org: 'Asian Kitchen Bar Bhawana',
+    location: 'Japan',
+    period: 'Nov 2020 — Jun 2024',
+  },
+]
 
 export default function Experience() {
   return (
@@ -17,6 +39,7 @@ export default function Experience() {
 
         {EXPERIENCE.map((e, i) => {
           const left = i % 2 === 0
+
           return (
             <motion.div
               key={e.role + i}
@@ -45,12 +68,20 @@ export default function Experience() {
                   <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-electric/15 text-electric-bright">
                     <Briefcase size={16} />
                   </div>
+
                   <span className="font-mono text-xs text-electric-bright">
                     {e.period}
                   </span>
                 </div>
-                <h3 className="font-display text-xl font-bold">{e.role}</h3>
-                <p className="mt-1 text-sm text-white/65">{e.org}</p>
+
+                <h3 className="font-display text-xl font-bold">
+                  {e.role}
+                </h3>
+
+                <p className="mt-1 text-sm text-white/65">
+                  {e.org}
+                </p>
+
                 <p
                   className={`mt-2 flex items-center gap-1.5 text-xs text-white/45 ${
                     left ? 'md:justify-end' : ''
