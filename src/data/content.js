@@ -11,6 +11,13 @@ export const NAV_LINKS = [
     { id: 'contact', label: 'Contact' },
 ]
 
+export const ROLES = [
+    'Computer Science Student',
+    'Co-Founder of Codyza',
+    'Full-Stack Developer',
+    'Creative Technologist',
+]
+
 export const PROJECTS = [{
         name: 'TheBasicGame',
 
