@@ -1,7 +1,46 @@
 import { motion } from 'framer-motion'
 import { Code2, Layers, Wrench, Lightbulb, Languages } from 'lucide-react'
 import { Section, SectionHeader, fadeUp } from './Section'
-import { SKILLS } from '../data/content'
+
+const SKILLS = [
+  {
+    group: 'Programming',
+    items: ['Python', 'C', 'Java', 'JavaScript', 'HTML5', 'CSS3'],
+  },
+
+  {
+    group: 'Frameworks & Technologies',
+    items: ['React.js', 'Node.js', 'Express.js', 'Vite', 'Supabase'],
+  },
+
+  {
+    group: 'Tools',
+    items: ['Git', 'GitHub', 'VS Code', 'Render', 'Supabase'],
+  },
+
+  {
+    group: 'Concepts',
+    items: [
+      'Full Stack Development',
+      'Frontend & Backend Integration',
+      'Database Management',
+      'Problem Solving',
+      'Team Collaboration',
+    ],
+  },
+
+  {
+    group: 'Languages',
+    items: [
+      'Nepali',
+      'English',
+      'Japanese',
+      'Hindi',
+      'Urdu',
+      'Spanish',
+    ],
+  },
+]
 
 const icons = {
   Programming: Code2,
@@ -23,6 +62,7 @@ export default function Skills() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {SKILLS.map((s, i) => {
           const Icon = icons[s.group] || Code2
+
           return (
             <motion.div
               key={s.group}
@@ -37,12 +77,17 @@ export default function Skills() {
               }`}
             >
               <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-electric/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 opacity-0" />
+
               <div className="mb-6 flex items-center gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-xl bg-electric/15 text-electric-bright">
                   <Icon size={18} />
                 </div>
-                <h3 className="font-display text-xl font-bold">{s.group}</h3>
+
+                <h3 className="font-display text-xl font-bold">
+                  {s.group}
+                </h3>
               </div>
+
               <div className="flex flex-wrap gap-2.5">
                 {s.items.map((it) => (
                   <span
