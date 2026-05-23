@@ -33,6 +33,28 @@ export const ROLES = [
     'Creative Technologist',
 ]
 
+export const JOURNEY = [{
+        flag: '🇳🇵',
+        country: 'Nepal',
+        period: 'Origin',
+        text: 'Roots, resilience and the early spark for technology and leadership.',
+    },
+
+    {
+        flag: '🇯🇵',
+        country: 'Japan',
+        period: '2020 — 2024',
+        text: 'Management, discipline and national-level athletics across four formative years.',
+    },
+
+    {
+        flag: '🇺🇸',
+        country: 'United States',
+        period: '2024 — Present',
+        text: 'Computer Science at SMSU, Co-founding Codyza, and building full-stack products.',
+    },
+]
+
 export const PROJECTS = [{
         name: 'TheBasicGame',
 
