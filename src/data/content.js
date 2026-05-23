@@ -55,6 +55,24 @@ export const JOURNEY = [{
     },
 ]
 
+export const EDUCATION = {
+    school: 'Southwest Minnesota State University',
+
+    location: 'Marshall, Minnesota',
+
+    degree: 'Bachelor of Science in Computer Science',
+
+    graduation: 'Expected Graduation: May 2028',
+
+    coursework: [
+        'Programming Fundamentals',
+        'Data Structures',
+        'Problem Solving',
+        'Web Development',
+        'Computer Science Concepts',
+    ],
+}
+
 export const PROJECTS = [{
         name: 'TheBasicGame',
 
