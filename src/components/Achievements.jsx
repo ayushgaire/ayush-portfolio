@@ -2,7 +2,29 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Trophy, Medal, Star } from 'lucide-react'
 import { Section, SectionHeader } from './Section'
-import { ACHIEVEMENTS } from '../data/content'
+
+const ACHIEVEMENTS = [
+  {
+    stat: '01',
+    label: 'Prefectural Athlete',
+    detail:
+      'Recognized as a Prefectural-Level Athlete in Japan through discipline, consistency and competitive performance.',
+  },
+
+  {
+    stat: '3+',
+    label: 'Years Experience',
+    detail:
+      'Experience in leadership, technology, management and creative digital development.',
+  },
+
+  {
+    stat: '10+',
+    label: 'Projects Built',
+    detail:
+      'Designed and developed modern websites, platforms and full-stack digital products.',
+  },
+]
 
 const icons = [Trophy, Medal, Star]
 
@@ -69,23 +91,18 @@ export default function Achievements() {
               whileHover={{ y: -6 }}
               className="group relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl glass-strong p-5 text-center"
             >
-              {/* top glow line */}
               <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-50" />
 
-              {/* icon */}
               <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow transition-transform duration-500 group-hover:scale-105">
                 <Icon size={20} />
               </div>
 
-              {/* stat */}
               <Counter value={a.stat} />
 
-              {/* label */}
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-electric-bright">
                 {a.label}
               </p>
 
-              {/* detail */}
               <p className="mt-3 text-xs leading-relaxed text-white/55">
                 {a.detail}
               </p>
