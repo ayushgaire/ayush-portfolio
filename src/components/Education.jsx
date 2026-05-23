@@ -1,7 +1,20 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, MapPin, CalendarCheck, BookOpen } from 'lucide-react'
 import { Section, SectionHeader, fadeUp } from './Section'
-import { EDUCATION } from '../data/content'
+
+const EDUCATION = {
+  school: 'Southwest Minnesota State University',
+  location: 'Marshall, Minnesota',
+  degree: 'Bachelor of Science in Computer Science',
+  graduation: 'Expected Graduation: May 2028',
+  coursework: [
+    'Programming Fundamentals',
+    'Data Structures',
+    'Problem Solving',
+    'Web Development',
+    'Computer Science Concepts',
+  ],
+}
 
 export default function Education() {
   return (
@@ -24,17 +37,21 @@ export default function Education() {
             <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow">
               <GraduationCap size={28} />
             </div>
+
             <div>
               <h3 className="font-display text-3xl font-bold md:text-4xl">
                 {EDUCATION.school}
               </h3>
+
               <p className="mt-3 text-lg text-electric-bright">
                 {EDUCATION.degree}
               </p>
+
               <div className="mt-4 flex flex-wrap gap-5 text-sm text-white/55">
                 <span className="flex items-center gap-2">
                   <MapPin size={15} /> {EDUCATION.location}
                 </span>
+
                 <span className="flex items-center gap-2">
                   <CalendarCheck size={15} /> {EDUCATION.graduation}
                 </span>
@@ -47,6 +64,7 @@ export default function Education() {
           <h4 className="mb-5 flex items-center gap-2 font-mono text-xs tracking-[0.3em] text-white/50">
             <BookOpen size={14} /> RELEVANT COURSEWORK
           </h4>
+
           <div className="flex flex-wrap gap-3">
             {EDUCATION.coursework.map((c, i) => (
               <motion.span
