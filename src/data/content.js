@@ -1,3 +1,16 @@
+export const NAV_LINKS = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'leadership', label: 'Leadership' },
+    { id: 'achievements', label: 'Achievements' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'contact', label: 'Contact' },
+]
+
 export const PROJECTS = [{
         name: 'TheBasicGame',
 
