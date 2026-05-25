@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion'
-import { Users, Mic, Award } from 'lucide-react'
+import { Users, Mic, Award, HeartHandshake } from 'lucide-react'
 import { Section, SectionHeader, fadeUp } from './Section'
 
 const LEADERSHIP = [
   {
     title: 'International Student Organization (ISO)',
     role: 'Program Coordinator',
+  },
+
+  {
+    title: 'American Red Cross',
+    role: 'Information & Planning Volunteer Generalist — Southwest Minnesota',
   },
 
   {
@@ -19,7 +24,7 @@ const LEADERSHIP = [
   },
 ]
 
-const icons = [Users, Mic, Award]
+const icons = [Users, HeartHandshake, Mic, Award]
 
 export default function Leadership() {
   return (
@@ -27,10 +32,10 @@ export default function Leadership() {
       <SectionHeader
         index="06"
         title="Leadership & Involvement"
-        subtitle="Coordinating programs, advocating for causes, and representing communities on meaningful stages."
+        subtitle="Coordinating programs, supporting communities, advocating for causes, and representing organizations on meaningful stages."
       />
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {LEADERSHIP.map((l, i) => {
           const Icon = icons[i % icons.length]
 
