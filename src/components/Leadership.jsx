@@ -43,7 +43,7 @@ export default function Leadership() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="group card card-hover p-8"
+            className="group card card-hover p-6 sm:p-8"
           >
             <div className="mb-6 flex items-center gap-3">
               <div className="h-12 w-12 flex-shrink-0 rounded-xl bg-gold flex items-center justify-center">

@@ -35,9 +35,9 @@ export default function Education() {
         {/* Top accent bar */}
         <div className="h-2 w-full bg-gold" />
 
-        <div className="p-8 md:p-12">
-          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-            <div className="flex gap-6">
+        <div className="p-6 sm:p-8 md:p-12">
+          <div className="flex flex-col gap-6 sm:gap-8 md:flex-row md:items-start md:justify-between">
+            <div className="flex gap-4 sm:gap-6">
               <div className="flex-shrink-0">
                 <div className="h-16 w-16 rounded-2xl bg-gold flex items-center justify-center shadow-card">
                   <GraduationCap size={28} className="text-white" strokeWidth={2.5} />

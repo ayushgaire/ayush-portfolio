@@ -71,7 +71,7 @@ export default function Achievements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="card card-hover p-8 text-center"
+            className="card card-hover p-6 sm:p-8 text-center"
           >
             <div className="h-1.5 w-12 bg-gold mx-auto mb-7 rounded-full" />
 

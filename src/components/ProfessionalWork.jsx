@@ -65,7 +65,7 @@ export default function ProfessionalWork() {
   return (
     <section
       id="client-work"
-      className="relative mx-auto w-full max-w-7xl px-6 py-28 md:py-36 border-t-2 border-border"
+      className="relative mx-auto w-full max-w-7xl px-5 sm:px-6 py-20 sm:py-24 md:py-32 lg:py-36 border-t-2 border-border"
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -76,10 +76,10 @@ export default function ProfessionalWork() {
       >
         <span className="section-num">04b.</span>
         <span className="section-rule" />
-        <h2 className="text-6xl font-black tracking-tight text-ink md:text-8xl leading-[0.9]">
+        <h2 className="text-5xl font-black tracking-tight text-ink sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9]">
           Client Work
         </h2>
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-2 md:text-xl font-medium">
+        <p className="mt-5 sm:mt-6 max-w-3xl text-base sm:text-lg leading-relaxed text-ink-2 md:text-xl font-medium">
           Real-world portfolio websites designed and developed for professionals through{' '}
           <span className="font-extrabold text-ink">Codyza</span> — focused on premium UI/UX
           and production-ready deployment.

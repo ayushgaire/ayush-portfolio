@@ -45,10 +45,10 @@ export default function Navbar() {
         scrolled ? 'nav-surface shadow-navbar' : ''
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6">
         <button
           onClick={() => go('home')}
-          className="text-3xl font-extrabold tracking-tight text-ink"
+          className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink"
         >
           Ayush<span className="text-gold">.</span>
         </button>

@@ -53,7 +53,7 @@ export default function Skills() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-40px' }}
-            className={`card card-hover p-7 ${i === 3 ? 'lg:col-span-2' : ''}`}
+            className={`card card-hover p-5 sm:p-7 ${i === 3 ? 'lg:col-span-2' : ''}`}
           >
             <div className="flex items-start justify-between mb-6">
               <h3 className="text-2xl font-extrabold text-ink">

@@ -34,31 +34,31 @@ function ProfileVisual() {
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative flex justify-center lg:justify-end"
+      className="relative w-full max-w-[400px] mx-auto lg:ml-auto lg:mr-0"
     >
       {/* Warm cream backing — paper-like, slightly offset */}
       <div
-        className="absolute -top-8 -left-8 -right-2 -bottom-2 rounded-[2rem] bg-surface border-2 border-border"
+        className="absolute -top-4 -left-4 -right-2 -bottom-2 sm:-top-6 sm:-left-6 rounded-[2rem] bg-surface border-2 border-border"
         style={{ zIndex: 0 }}
       />
 
-      {/* Decorative corner brackets */}
-      <div className="absolute -top-12 -right-4 w-20 h-1 bg-gold rounded-full z-20" />
-      <div className="absolute -top-12 -right-4 w-1 h-20 bg-gold rounded-full z-20" />
-      <div className="absolute -bottom-6 -left-12 w-16 h-1 bg-gold rounded-full z-20" />
-      <div className="absolute -bottom-6 -left-12 w-1 h-16 bg-gold rounded-full z-20" />
+      {/* Decorative corner brackets — contained within visible area */}
+      <div className="absolute -top-6 right-2 w-14 h-1 bg-gold rounded-full z-20 sm:-top-8 sm:right-0 sm:w-16" />
+      <div className="absolute -top-6 right-2 w-1 h-14 bg-gold rounded-full z-20 sm:-top-8 sm:right-0 sm:h-16" />
+      <div className="absolute -bottom-3 left-2 w-12 h-1 bg-gold rounded-full z-20 sm:-bottom-4 sm:-left-6 sm:w-14" />
+      <div className="absolute -bottom-3 left-2 w-1 h-12 bg-gold rounded-full z-20 sm:-bottom-4 sm:-left-6 sm:h-14" />
 
       {/* Outer gold frame */}
       <div
-        className="relative z-10 rounded-[1.5rem] p-3"
+        className="relative z-10 rounded-[1.5rem] p-2 sm:p-3 mx-auto"
         style={{
           background: 'linear-gradient(135deg, #ffffff 0%, #f7eddc 50%, #ffffff 100%)',
           boxShadow: '0 24px 80px rgba(60,45,20,0.15), 0 0 0 2px rgba(176,131,68,0.25)',
         }}
       >
         <div
-          className="overflow-hidden rounded-[1.1rem] relative bg-card"
-          style={{ width: 360, height: 420 }}
+          className="overflow-hidden rounded-[1.1rem] relative bg-card w-full"
+          style={{ aspectRatio: '6/7' }}
         >
           {imgOk ? (
             <img
@@ -74,7 +74,7 @@ function ProfileVisual() {
             </div>
           )}
 
-          {/* Warm vignette overlay — blends dark photo with cream theme */}
+          {/* Warm vignette overlay */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -85,28 +85,28 @@ function ProfileVisual() {
         </div>
       </div>
 
-      {/* Floating Codyza badge — big, strong, legible */}
+      {/* Floating Codyza badge — responsive position, contained */}
       <motion.a
         href={SOCIALS.codyza}
         target="_blank"
         rel="noreferrer"
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -bottom-8 -right-6 z-30 flex items-center gap-3 rounded-2xl bg-card border-2 border-border shadow-card-hover px-6 py-4"
+        className="absolute -bottom-5 right-2 sm:-bottom-7 sm:-right-2 z-30 flex items-center gap-2.5 sm:gap-3 rounded-2xl bg-card border-2 border-border shadow-card-hover px-4 py-3 sm:px-5 sm:py-3.5"
         aria-label="Visit Codyza"
       >
-        <div className="h-12 w-12 rounded-xl bg-ink flex items-center justify-center">
-          <span className="text-2xl font-extrabold text-gold leading-none">C</span>
+        <div className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-ink flex items-center justify-center flex-shrink-0">
+          <span className="text-xl sm:text-2xl font-extrabold text-gold leading-none">C</span>
         </div>
         <div>
-          <p className="label leading-none text-gold mb-1.5">Founder</p>
-          <p className="text-base font-extrabold text-ink leading-none">Codyza</p>
+          <p className="label leading-none text-gold mb-1">Founder</p>
+          <p className="text-sm sm:text-base font-extrabold text-ink leading-none">Codyza</p>
         </div>
-        <ArrowUpRight size={16} className="text-ink-2" strokeWidth={2.5} />
+        <ArrowUpRight size={15} className="text-ink-2 flex-shrink-0" strokeWidth={2.5} />
       </motion.a>
 
-      {/* Three decorative dots */}
-      <div className="absolute -right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-3 z-20">
+      {/* Three decorative dots — desktop only, doesn't overflow */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 hidden xl:flex flex-col gap-3 z-20">
         {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
@@ -127,9 +127,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-36 pb-16"
+      className="relative flex min-h-screen items-center overflow-hidden px-5 sm:px-6 pt-32 sm:pt-36 pb-20"
     >
-      <div className="w-full max-w-7xl mx-auto grid items-center gap-16 lg:grid-cols-[1.15fr_1fr]">
+      <div className="w-full max-w-7xl mx-auto grid items-center gap-12 sm:gap-14 lg:gap-16 lg:grid-cols-[1.15fr_1fr]">
 
         {/* Left content */}
         <div className="order-2 lg:order-1">

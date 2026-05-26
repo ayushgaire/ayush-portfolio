@@ -49,10 +49,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="group card card-hover p-8 flex flex-col"
+          className="group card card-hover p-6 sm:p-8 flex flex-col"
         >
-          <div className="flex items-start justify-between mb-8">
-            <div className="h-14 w-14 rounded-2xl bg-gold flex items-center justify-center">
+          <div className="flex items-start justify-between mb-6 sm:mb-8">
+            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gold flex items-center justify-center">
               <Mail size={22} className="text-white" strokeWidth={2.5} />
             </div>
             <ArrowUpRight
@@ -73,10 +73,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.08 }}
-          className="group card card-hover p-8 flex flex-col"
+          className="group card card-hover p-6 sm:p-8 flex flex-col"
         >
-          <div className="flex items-start justify-between mb-8">
-            <div className="h-14 w-14 rounded-2xl bg-gold flex items-center justify-center">
+          <div className="flex items-start justify-between mb-6 sm:mb-8">
+            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gold flex items-center justify-center">
               <Phone size={22} className="text-white" strokeWidth={2.5} />
             </div>
             <ArrowUpRight
@@ -97,7 +97,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.65, delay: 0.14 }}
-        className="card p-7 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
+        className="card p-5 sm:p-7 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
       >
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-xl bg-gold flex items-center justify-center">

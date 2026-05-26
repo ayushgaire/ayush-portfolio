@@ -32,7 +32,7 @@ export default function Experience() {
         subtitle="Roles across operations, management, and campus services — building responsibility and a strong work ethic."
       />
 
-      <div className="relative pl-10">
+      <div className="relative pl-7 sm:pl-10">
         <div className="timeline-line" />
 
         {EXPERIENCE.map((e, i) => (
@@ -42,11 +42,11 @@ export default function Experience() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.75, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mb-8 last:mb-0"
+            className="relative mb-6 sm:mb-8 last:mb-0"
           >
-            <span className="absolute -left-[42px] top-7 h-4 w-4 rounded-full bg-gold border-4 border-bg" />
+            <span className="absolute -left-[30px] sm:-left-[42px] top-7 h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-gold border-4 border-bg" />
 
-            <div className="card card-hover p-7">
+            <div className="card card-hover p-5 sm:p-7">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4 mb-3">
                 <span className="label text-gold">{e.period}</span>
                 <span className="flex items-center gap-1.5 text-sm text-ink-2 font-semibold">
