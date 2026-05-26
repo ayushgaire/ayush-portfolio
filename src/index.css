@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --electric: #1285ff;
-  --ink: #050505;
+  --bg: #fdfcfb;
+  --surface: #f7f5f1;
+  --ink: #111111;
+  --ink-2: #555555;
+  --ink-3: #8a8a8a;
+  --border: #e8e3db;
+  --gold: #c4955a;
+  --gold-light: #e8d5b0;
 }
 
 * {
@@ -20,9 +26,9 @@ html {
 }
 
 body {
-  background: var(--ink);
-  color: #ededed;
-  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
   cursor: none;
 }
@@ -32,157 +38,247 @@ body {
 }
 
 ::selection {
-  background: rgba(18, 133, 255, 0.35);
-  color: #fff;
+  background: rgba(196, 149, 90, 0.18);
+  color: #111111;
 }
 
-/* ---------- Scrollbar ---------- */
-::-webkit-scrollbar {
-  width: 9px;
-}
-::-webkit-scrollbar-track {
-  background: #050505;
-}
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f7f5f1; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1285ff, #0a5fc0);
+  background: linear-gradient(180deg, #c4955a, #e8d5b0);
   border-radius: 99px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #4da3ff;
-}
 
-/* ---------- Typography helpers ---------- */
-.font-display { font-family: 'Clash Display', Georgia, serif; }
-.font-mono { font-family: 'Geist Mono', monospace; }
+/* ── Typography ── */
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
 
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #a9cfff 45%, #1285ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-glow {
-  text-shadow: 0 0 28px rgba(18, 133, 255, 0.55);
-}
-
-/* ---------- Glass ---------- */
-.glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012));
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06);
-}
-
-.glass-strong {
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-hover {
-  transition: border-color .45s ease, transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease;
-}
-.glass-hover:hover {
-  border-color: rgba(18, 133, 255, 0.45);
-  box-shadow: 0 0 50px -12px rgba(18,133,255,0.4);
-}
-
-/* ---------- Animated mesh background ---------- */
-.mesh-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(60% 55% at 20% 18%, rgba(18,133,255,0.16), transparent 60%),
-    radial-gradient(50% 50% at 82% 30%, rgba(77,163,255,0.10), transparent 60%),
-    radial-gradient(60% 60% at 50% 95%, rgba(10,95,192,0.14), transparent 65%),
-    #050505;
-}
-
+/* ── Grain texture — gives paper warmth ── */
 .grain {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  opacity: 0.035;
+  z-index: 200;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  background-size: 200px;
 }
 
-.grid-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 30%, transparent 75%);
-}
-
-/* ---------- Custom cursor ---------- */
-.cursor-dot, .cursor-ring {
+/* ── Custom Cursor ── */
+.cursor-dot {
   position: fixed;
   top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: #111111;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-}
-.cursor-dot {
-  width: 7px; height: 7px;
-  background: #fff;
   transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, background 0.25s;
 }
 .cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(18,133,255,0.85);
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(17, 17, 17, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width .25s, height .25s, background .25s, border-color .25s;
+  transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, background 0.3s;
 }
 .cursor-ring.hovered {
-  width: 58px; height: 58px;
-  background: rgba(18,133,255,0.12);
-  border-color: rgba(77,163,255,1);
+  width: 52px; height: 52px;
+  border-color: rgba(196, 149, 90, 0.55);
+  background: rgba(196, 149, 90, 0.07);
 }
-
 @media (pointer: coarse) {
   .cursor-dot, .cursor-ring { display: none; }
 }
 
-/* ---------- Buttons ---------- */
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
+/* ── Card System ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e8e3db;
+  border-radius: 18px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+  transition: box-shadow 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
 }
-.btn-glow::before {
-  content: '';
+.card-hover:hover {
+  box-shadow: 0 12px 56px rgba(0,0,0,0.09);
+  transform: translateY(-4px);
+  border-color: #d4c5b0;
+}
+
+/* ── Surface Card (warm off-white background) ── */
+.card-surface {
+  background: #f7f5f1;
+  border: 1px solid #ede9e2;
+  border-radius: 18px;
+  transition: box-shadow 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.card-surface:hover {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111111;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+  cursor: none;
+}
+.btn-primary:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #111111;
+  padding: 11px 26px;
+  border-radius: 10px;
+  border: 1.5px solid #e8e3db;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  cursor: none;
+}
+.btn-secondary:hover {
+  border-color: #111111;
+  background: #f7f5f1;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: #555555;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(196,149,90,0.6);
+  transition: color 0.2s, text-decoration-color 0.2s;
+  cursor: none;
+}
+.btn-ghost:hover {
+  color: #111111;
+  text-decoration-color: #111111;
+}
+
+/* ── Nav ── */
+.nav-surface {
+  background: rgba(253, 252, 251, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(232, 227, 219, 0.7);
+}
+
+/* ── Label / Mono tag ── */
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+}
+
+/* ── Tag pills ── */
+.tag {
+  display: inline-block;
+  background: #f7f5f1;
+  border: 1px solid #e8e3db;
+  border-radius: 8px;
+  padding: 5px 13px;
+  font-size: 0.78rem;
+  color: #555555;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.tag:hover {
+  border-color: #c4955a;
+  background: #fdf8f3;
+  color: #111111;
+}
+
+/* ── Section divider ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e8e3db 25%, #e8e3db 75%, transparent);
+  margin: 0;
+}
+
+/* ── Scroll progress bar ── */
+.scroll-bar {
+  position: fixed;
+  inset-x-0: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c4955a 0%, #e8d5b0 50%, #c4955a 100%);
+  transform-origin: left;
+  z-index: 60;
+}
+
+/* ── Section number marker ── */
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #c4955a;
+  letter-spacing: 0.05em;
+}
+
+/* ── Timeline vertical line ── */
+.timeline-line {
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(120deg, transparent, rgba(18,133,255,0.8), transparent);
-  background-size: 250% 100%;
-  z-index: -1;
-  animation: shimmer 3.5s linear infinite;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, #c4955a, rgba(196,149,90,0.2));
 }
 
-/* ---------- Marquee ---------- */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* ── Reveal animation ── */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Reveal ---------- */
-.reveal-line {
-  background: linear-gradient(90deg, transparent, rgba(18,133,255,0.55), transparent);
+/* ── Section header line ── */
+.section-rule {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #c4955a;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* ── Decorative dots ── */
+.dot-gold {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c4955a;
+  opacity: 0.6;
 }
 
 @media (prefers-reduced-motion: reduce) {

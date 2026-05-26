@@ -3,32 +3,37 @@ import { motion } from 'framer-motion'
 export default function Loader() {
   return (
     <motion.div
-      className="fixed inset-0 z-[10000] flex items-center justify-center bg-ink"
+      className="fixed inset-0 z-[10000] flex items-center justify-center bg-bg"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.8, delay: 2 }}
+      transition={{ duration: 0.6, delay: 1.6 }}
       style={{ pointerEvents: 'none' }}
     >
-      <div className="text-center">
+      <div className="flex flex-col items-center gap-6">
         <motion.div
-          className="relative mx-auto mb-8 h-24 w-24"
-          initial={{ rotateY: 0 }}
-          animate={{ rotateY: 360 }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'linear' }}
-          style={{ transformStyle: 'preserve-3d' }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-display text-5xl font-light tracking-wide text-ink"
         >
-          <div className="absolute inset-0 rounded-2xl border border-electric/40 bg-glass-grad backdrop-blur-xl shadow-glow flex items-center justify-center">
-            <span className="font-display text-4xl font-bold text-gradient">C</span>
-          </div>
+          Ayush<span className="text-gold italic">.</span>
         </motion.div>
+
         <motion.div
-          className="font-mono text-xs tracking-[0.5em] text-electric-bright uppercase"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="h-px w-24 origin-left bg-gold"
+        />
+
+        <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0.4, 1] }}
-          transition={{ duration: 1.8, repeat: Infinity }}
+          animate={{ opacity: [0, 0.5, 0] }}
+          transition={{ duration: 1.4, delay: 0.4, repeat: Infinity }}
+          className="label text-ink-3"
         >
-          Codyza
-        </motion.div>
+          Loading
+        </motion.p>
       </div>
     </motion.div>
   )

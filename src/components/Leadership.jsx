@@ -4,68 +4,60 @@ import { Section, SectionHeader, fadeUp } from './Section'
 
 const LEADERSHIP = [
   {
-    title: 'International Student Organization (ISO)',
-    role: 'Program Coordinator',
+    title: 'International Student Organization',
+    role: 'Program Coordinator — SMSU ISO',
+    Icon: Users,
   },
-
   {
     title: 'American Red Cross',
     role: 'Information & Planning Volunteer Generalist — Southwest Minnesota',
+    Icon: HeartHandshake,
   },
-
   {
     title: 'UNICEF Speaker',
     role: 'Spoke on water problems — UNICEF event, Kagoshima, Japan',
+    Icon: Mic,
   },
-
   {
     title: 'ISA Award Nepal',
     role: 'Student Coordinator',
+    Icon: Award,
   },
 ]
 
-const icons = [Users, HeartHandshake, Mic, Award]
-
 export default function Leadership() {
   return (
-    <Section id="leadership">
+    <Section id="leadership" className="border-t border-border">
       <SectionHeader
-        index="06"
-        title="Leadership & Involvement"
+        index="06."
+        title="Leadership"
         subtitle="Coordinating programs, supporting communities, advocating for causes, and representing organizations on meaningful stages."
       />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {LEADERSHIP.map((l, i) => {
-          const Icon = icons[i % icons.length]
-
-          return (
-            <motion.div
-              key={l.title}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl glass glass-hover p-8"
-            >
-              <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-electric/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-              <div className="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow">
-                <Icon size={24} />
+      <div className="grid gap-5 md:grid-cols-2">
+        {LEADERSHIP.map(({ title, role, Icon }, i) => (
+          <motion.div
+            key={title}
+            custom={i}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="group card card-hover p-7"
+          >
+            <div className="mb-5 flex items-center gap-3">
+              <div className="h-10 w-10 flex-shrink-0 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
+                <Icon size={17} className="text-gold" />
               </div>
+              <div className="h-px flex-1 bg-border" />
+            </div>
 
-              <h3 className="font-display text-xl font-bold leading-snug">
-                {l.title}
-              </h3>
-
-              <p className="mt-3 text-sm text-electric-bright">
-                {l.role}
-              </p>
-            </motion.div>
-          )
-        })}
+            <h3 className="font-display text-2xl font-bold text-ink leading-snug mb-2.5">
+              {title}
+            </h3>
+            <p className="text-base text-ink-2 leading-relaxed font-medium">{role}</p>
+          </motion.div>
+        ))}
       </div>
     </Section>
   )

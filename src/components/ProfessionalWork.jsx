@@ -1,122 +1,138 @@
-const ProfessionalWork = () => {
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
+import { fadeUp } from './Section'
+
+const CLIENT_WORK = [
+  {
+    name: 'Raman Dahal Portfolio',
+    description:
+      'Designed and developed a modern responsive portfolio website for Raman Dahal with a clean premium UI inspired by modern Apple-style aesthetics.',
+    tech: ['React', 'Tailwind CSS', 'Framer Motion'],
+    image: '/projects/raman-project.jpg',
+    url: 'https://www.ramandahal.com/',
+    accent: '#c4955a',
+  },
+  {
+    name: 'Gedion Gizaw Portfolio',
+    description:
+      'Built a professional portfolio website with modern 3D-inspired sections and clean visual hierarchy for Gedion Tilahun Gizaw.',
+    tech: ['React', 'Tailwind CSS', '3D UI'],
+    image: '/projects/gedion-project.jpg',
+    url: 'https://www.gediontilahungizaw.com/',
+    accent: '#8b6f47',
+  },
+]
+
+function WorkCover({ name, image, accent }) {
+  const [error, setError] = useState(false)
+  if (error) {
+    return (
+      <div
+        className="relative h-60 w-full overflow-hidden flex items-center justify-center"
+        style={{
+          background: `linear-gradient(135deg, #f7f5f1 0%, #ffffff 50%, #fdf8f3 100%)`,
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(196,149,90,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(196,149,90,0.08) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        <span
+          className="relative font-display text-4xl font-bold text-ink text-center px-6"
+          style={{ letterSpacing: '-0.02em' }}
+        >
+          {name}
+        </span>
+      </div>
+    )
+  }
   return (
-    <>
-      {/* Professional Web Development Work */}
-      <section id="client-work" className="py-24 px-6 bg-[#0f172a]">
-        <div className="max-w-7xl mx-auto">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Professional Web Development Work
-            </h2>
-
-            <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-              Real-world portfolio websites designed and developed for professionals
-              and students through Codyza. Focused on modern UI/UX, responsive layouts,
-              premium animations, and production-ready deployment.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
-
-            {/* Raman Dahal Project */}
-            <div className="bg-[#111827] border border-gray-800 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-500">
-
-              <div className="relative overflow-hidden">
-                <img
-                  src="/projects/raman-project.jpg"
-                  alt="Raman Dahal Portfolio"
-                  className="w-full h-[260px] object-cover hover:scale-105 transition-all duration-700"
-                />
-              </div>
-
-              <div className="p-8">
-                <h3 className="text-3xl font-bold text-white mb-3">
-                  Raman Dahal Portfolio
-                </h3>
-
-                <p className="text-gray-400 leading-relaxed mb-6">
-                  Designed and developed a modern responsive portfolio website for
-                  Raman Dahal with a clean premium UI inspired by modern Apple-style
-                  aesthetics.
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm">
-                    React
-                  </span>
-
-                  <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm">
-                    Tailwind CSS
-                  </span>
-
-                  <span className="px-4 py-2 rounded-full bg-purple-500/10 text-purple-400 text-sm">
-                    Framer Motion
-                  </span>
-                </div>
-
-                <a
-                  href="https://www.ramandahal.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all"
-                >
-                  Visit Website →
-                </a>
-              </div>
-            </div>
-
-            {/* Gedion Project */}
-            <div className="bg-[#111827] border border-gray-800 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-500">
-
-              <div className="relative overflow-hidden">
-                <img
-                  src="/projects/gedion-project.jpg"
-                  alt="Gedion Gizaw Portfolio"
-                  className="w-full h-[260px] object-cover hover:scale-105 transition-all duration-700"
-                />
-              </div>
-
-              <div className="p-8">
-                <h3 className="text-3xl font-bold text-white mb-3">
-                  Gedion Gizaw Portfolio
-                </h3>
-
-                <p className="text-gray-400 leading-relaxed mb-6">
-                  Built a professional portfolio website with modern 3D-inspired
-                  sections and clean visual hierarchy for Gedion Gizaw.
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm">
-                    React
-                  </span>
-
-                  <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm">
-                    Tailwind CSS
-                  </span>
-
-                  <span className="px-4 py-2 rounded-full bg-pink-500/10 text-pink-400 text-sm">
-                    3D UI
-                  </span>
-                </div>
-
-                <a
-                  href="https://www.gediontilahungizaw.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all"
-                >
-                  Visit Website →
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="overflow-hidden h-60">
+      <img
+        src={image}
+        alt={name}
+        onError={() => setError(true)}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    </div>
   )
 }
 
-export default ProfessionalWork
+export default function ProfessionalWork() {
+  return (
+    <section
+      id="client-work"
+      className="relative mx-auto w-full max-w-6xl px-6 py-28 md:py-36 border-t border-border"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-16 md:mb-20"
+      >
+        <span className="section-num font-semibold">04b.</span>
+        <span className="section-rule" />
+        <h2 className="font-display text-6xl font-semibold tracking-tight text-ink md:text-8xl leading-[0.95]">
+          Client Work
+        </h2>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2 md:text-xl">
+          Real-world portfolio websites designed and developed for professionals through{' '}
+          <span className="font-semibold text-ink">Codyza</span> — focused on premium
+          UI/UX and production-ready deployment.
+        </p>
+      </motion.div>
+
+      <div className="grid gap-8 md:grid-cols-2">
+        {CLIENT_WORK.map((w, i) => (
+          <motion.div
+            key={w.name}
+            custom={i}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="group card card-hover overflow-hidden"
+          >
+            <WorkCover name={w.name} image={w.image} accent={w.accent} />
+
+            <div className="p-7">
+              <h3 className="font-display text-3xl font-bold text-ink mb-3 leading-tight">
+                {w.name}
+              </h3>
+              <p className="text-base leading-relaxed text-ink-2 mb-5">
+                {w.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {w.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-ink-2 font-medium"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={w.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm inline-flex"
+              >
+                <ExternalLink size={14} />
+                Visit Website
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  )
+}

@@ -21,98 +21,103 @@ const socials = [
 
 export default function Contact() {
   return (
-    <Section id="contact">
+    <Section id="contact" className="border-t border-border">
       <SectionHeader
-        index="09"
+        index="09."
         title="Let's Connect"
-        subtitle="Interested in collaboration, internships, freelance work, or innovative projects? Let's connect."
+        subtitle="Interested in collaboration, internships, freelance work, or innovative projects? I'd love to hear from you."
       />
 
-      <div className="grid gap-6 md:grid-cols-2">
+      {/* Personal warm message */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="mb-10 max-w-3xl"
+      >
+        <p className="font-display text-3xl font-semibold text-ink-2 leading-tight md:text-5xl">
+          Whether it's a startup idea, a web project, or just a conversation —
+          <em className="text-ink font-bold not-italic"> my inbox is open.</em>
+        </p>
+      </motion.div>
+
+      <div className="grid gap-4 md:grid-cols-2 mb-4">
+        {/* Email */}
         <motion.a
           href={`mailto:${SOCIALS.email}`}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          whileHover={{ y: -6 }}
-          transition={{ duration: 0.6 }}
-          className="group relative overflow-hidden rounded-3xl glass-strong p-9"
+          transition={{ duration: 0.65 }}
+          className="group card card-hover p-8 flex flex-col"
         >
-          <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-60" />
-          <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-electric/15 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          <div className="flex items-start justify-between">
-            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow">
-              <Mail size={24} />
+          <div className="flex items-start justify-between mb-8">
+            <div className="h-11 w-11 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
+              <Mail size={18} className="text-gold" />
             </div>
             <ArrowUpRight
-              size={22}
-              className="text-white/30 transition-all duration-300 group-hover:rotate-45 group-hover:text-electric-bright"
+              size={18}
+              className="text-ink-3 transition-all duration-300 group-hover:text-gold group-hover:rotate-12"
             />
           </div>
-          <p className="mt-8 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-            Email
-          </p>
-          <p className="mt-2 break-all font-display text-xl font-bold transition-colors group-hover:text-electric-bright">
+          <span className="label text-ink-3 mb-2 font-bold">Email</span>
+          <p className="font-display text-2xl font-bold text-ink break-all group-hover:text-gold transition-colors duration-300">
             {SOCIALS.email}
           </p>
         </motion.a>
 
+        {/* Phone */}
         <motion.a
           href={`tel:${SOCIALS.phone}`}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          whileHover={{ y: -6 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="group relative overflow-hidden rounded-3xl glass-strong p-9"
+          transition={{ duration: 0.65, delay: 0.08 }}
+          className="group card card-hover p-8 flex flex-col"
         >
-          <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-60" />
-          <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-electric/15 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          <div className="flex items-start justify-between">
-            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow">
-              <Phone size={24} />
+          <div className="flex items-start justify-between mb-8">
+            <div className="h-11 w-11 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
+              <Phone size={18} className="text-gold" />
             </div>
             <ArrowUpRight
-              size={22}
-              className="text-white/30 transition-all duration-300 group-hover:rotate-45 group-hover:text-electric-bright"
+              size={18}
+              className="text-ink-3 transition-all duration-300 group-hover:text-gold group-hover:rotate-12"
             />
           </div>
-          <p className="mt-8 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-            Phone
-          </p>
-          <p className="mt-2 font-display text-xl font-bold transition-colors group-hover:text-electric-bright">
+          <span className="label text-ink-3 mb-2 font-bold">Phone</span>
+          <p className="font-display text-2xl font-bold text-ink group-hover:text-gold transition-colors duration-300">
             +1 507 817 9236
           </p>
         </motion.a>
       </div>
 
+      {/* Social row */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.15 }}
-        className="mt-6 flex flex-col items-center justify-between gap-6 rounded-3xl glass p-8 sm:flex-row"
+        transition={{ duration: 0.65, delay: 0.14 }}
+        className="card p-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
       >
         <div className="flex items-center gap-4">
-          <div className="grid h-12 w-12 place-items-center rounded-xl bg-electric/15 text-electric-bright">
-            <Globe size={20} />
+          <div className="h-10 w-10 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
+            <Globe size={16} className="text-gold" />
           </div>
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-white/40">
-              Around the web
-            </p>
+            <span className="label text-ink-3 block mb-0.5">Around the web</span>
             <a
               href={SOCIALS.codyza}
               target="_blank"
               rel="noreferrer"
-              className="text-sm text-white/75 transition-colors hover:text-electric-bright"
+              className="text-sm text-ink-2 hover:text-ink transition-colors underline underline-offset-3 decoration-gold/40 hover:decoration-ink"
             >
               codyza.com
             </a>
           </div>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           {socials.map(({ Icon, url, label }) => (
             <a
               key={label}
@@ -120,9 +125,9 @@ export default function Contact() {
               target="_blank"
               rel="noreferrer"
               aria-label={label}
-              className="grid h-12 w-12 place-items-center rounded-xl glass glass-hover text-white/55 transition-colors hover:text-electric-bright"
+              className="h-10 w-10 rounded-xl border border-border text-ink-3 hover:border-ink hover:text-ink transition-all duration-200 bg-card flex items-center justify-center"
             >
-              <Icon size={18} />
+              <Icon size={15} />
             </a>
           ))}
         </div>

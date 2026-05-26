@@ -8,57 +8,47 @@ const ACHIEVEMENTS = [
     stat: '01',
     label: 'Prefectural Athlete',
     detail:
-      'Recognized as a Prefectural-Level Athlete in Japan through discipline, consistency and competitive performance.',
+      'Recognized as a Prefectural-Level Athlete in Japan through discipline, consistency, and competitive performance.',
+    Icon: Trophy,
   },
-
   {
     stat: '3+',
     label: 'Years Experience',
     detail:
-      'Experience in leadership, technology, management and creative digital development.',
+      'Experience in leadership, technology, management, and creative digital development across three countries.',
+    Icon: Medal,
   },
-
   {
     stat: '10+',
     label: 'Projects Built',
     detail:
-      'Designed and developed modern websites, platforms and full-stack digital products.',
+      'Designed and developed modern websites, platforms, and full-stack digital products.',
+    Icon: Star,
   },
 ]
-
-const icons = [Trophy, Medal, Star]
 
 function Counter({ value }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
   const [n, setN] = useState(0)
-
   const numeric = parseInt(value, 10)
   const isNum = !isNaN(numeric)
 
   useEffect(() => {
     if (!inView || !isNum) return
-
-    const duration = 1200
-    const startTime = performance.now()
-
-    const tick = (time) => {
-      const progress = Math.min((time - startTime) / duration, 1)
-      setN(Math.floor(progress * numeric))
-
-      if (progress < 1) {
-        requestAnimationFrame(tick)
-      }
+    const duration = 1400
+    const start = performance.now()
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const ease = 1 - Math.pow(1 - progress, 3)
+      setN(Math.floor(ease * numeric))
+      if (progress < 1) requestAnimationFrame(tick)
     }
-
     requestAnimationFrame(tick)
   }, [inView, isNum, numeric])
 
   return (
-    <span
-      ref={ref}
-      className="font-display text-3xl md:text-4xl font-bold text-gradient break-words"
-    >
+    <span ref={ref} className="font-display text-6xl font-bold text-ink md:text-7xl">
       {isNum ? n : value}
     </span>
   )
@@ -66,49 +56,46 @@ function Counter({ value }) {
 
 export default function Achievements() {
   return (
-    <Section id="achievements">
+    <Section id="achievements" className="border-t border-border">
       <SectionHeader
-        index="07"
+        index="07."
         title="Achievements"
-        subtitle="Recognition earned through discipline, competition and representing at the highest levels."
+        subtitle="Recognition earned through discipline, competition, and representing at the highest levels."
       />
 
       <div className="grid gap-6 md:grid-cols-3">
-        {ACHIEVEMENTS.map((a, i) => {
-          const Icon = icons[i % icons.length]
+        {ACHIEVEMENTS.map(({ stat, label, detail, Icon }, i) => (
+          <motion.div
+            key={label}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="card card-hover p-7 text-center"
+          >
+            {/* Top gold accent bar */}
+            <div className="h-px w-8 bg-gold mx-auto mb-6" />
 
-          return (
-            <motion.div
-              key={a.label}
-              initial={{ opacity: 0, scale: 0.92, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-                delay: i * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ y: -6 }}
-              className="group relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl glass-strong p-5 text-center"
-            >
-              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-50" />
+            <div className="mb-3">
+              <Counter value={stat} />
+              {stat.includes('+') && (
+                <span className="font-display text-5xl font-bold text-gold">+</span>
+              )}
+            </div>
 
-              <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-electric/15 text-electric-bright shadow-glow transition-transform duration-500 group-hover:scale-105">
-                <Icon size={20} />
+            <p className="label text-gold font-bold mb-4">{label}</p>
+
+            <div className="h-px w-8 bg-border mx-auto mb-4" />
+
+            <p className="text-base leading-relaxed text-ink-2 font-medium">{detail}</p>
+
+            <div className="mt-6 flex justify-center">
+              <div className="h-9 w-9 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
+                <Icon size={15} className="text-gold" />
               </div>
-
-              <Counter value={a.stat} />
-
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-electric-bright">
-                {a.label}
-              </p>
-
-              <p className="mt-3 text-xs leading-relaxed text-white/55">
-                {a.detail}
-              </p>
-            </motion.div>
-          )
-        })}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </Section>
   )

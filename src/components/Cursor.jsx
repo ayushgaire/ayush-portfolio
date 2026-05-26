@@ -19,8 +19,8 @@ export default function Cursor() {
     }
 
     const loop = () => {
-      rx += (mx - rx) * 0.18
-      ry += (my - ry) * 0.18
+      rx += (mx - rx) * 0.14
+      ry += (my - ry) * 0.14
       if (ring.current) {
         ring.current.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`
       }
@@ -30,6 +30,7 @@ export default function Cursor() {
     const over = (e) => {
       if (e.target.closest('a, button, [data-hover]')) {
         ring.current?.classList.add('hovered')
+        dot.current && (dot.current.style.transform += ' scale(0)')
       }
     }
     const out = (e) => {
