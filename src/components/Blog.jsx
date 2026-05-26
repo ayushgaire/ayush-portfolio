@@ -35,7 +35,7 @@ const ARTICLES = [
 
 export default function Blog() {
   return (
-    <Section id="blog" className="border-t border-border">
+    <Section id="blog" className="border-t-2 border-border">
       <SectionHeader
         index="08."
         title="Writing"
@@ -55,8 +55,7 @@ export default function Blog() {
             transition={{ duration: 0.75, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="group card card-hover flex flex-col overflow-hidden"
           >
-            {/* Cover image */}
-            <div className="h-44 overflow-hidden bg-surface">
+            <div className="h-48 overflow-hidden bg-surface">
               <img
                 src={a.image}
                 alt={a.title}
@@ -66,32 +65,29 @@ export default function Blog() {
               />
             </div>
 
-            <div className="flex flex-1 flex-col p-6">
-              {/* Category */}
-              <span className="label text-gold font-bold mb-3">{a.category}</span>
+            <div className="flex flex-1 flex-col p-7">
+              <span className="label text-gold mb-4">{a.category}</span>
 
-              {/* Title */}
-              <h3 className="font-display text-2xl font-bold text-ink leading-snug mb-4 group-hover:text-gold transition-colors duration-300">
+              <h3 className="text-xl md:text-2xl font-extrabold text-ink leading-snug mb-4 group-hover:text-gold transition-colors duration-300">
                 {a.title}
               </h3>
 
-              {/* Meta */}
-              <div className="mt-auto flex items-center gap-4 text-xs text-ink-3">
+              <div className="mt-auto flex items-center gap-4 text-sm text-ink-3 font-semibold">
                 <span className="flex items-center gap-1.5">
-                  <Calendar size={11} />
+                  <Calendar size={13} strokeWidth={2.5} />
                   {a.date}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Clock size={11} />
+                  <Clock size={13} strokeWidth={2.5} />
                   {a.readTime}
                 </span>
               </div>
 
-              {/* Read link */}
-              <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-ink-2 group-hover:text-gold transition-colors duration-300">
+              <div className="mt-5 flex items-center gap-1.5 text-base font-bold text-ink group-hover:text-gold transition-colors duration-300">
                 Read Article
                 <ArrowUpRight
-                  size={14}
+                  size={16}
+                  strokeWidth={2.5}
                   className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </div>
@@ -100,13 +96,12 @@ export default function Blog() {
         ))}
       </div>
 
-      {/* Medium link */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-10 text-center"
+        className="mt-12 text-center"
       >
         <a
           href={SOCIALS.medium}
@@ -115,7 +110,7 @@ export default function Blog() {
           className="btn-ghost inline-flex"
         >
           Read all articles on Medium
-          <ArrowUpRight size={14} />
+          <ArrowUpRight size={15} strokeWidth={2.5} />
         </a>
       </motion.div>
     </Section>

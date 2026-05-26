@@ -18,7 +18,7 @@ const EDUCATION = {
 
 export default function Education() {
   return (
-    <Section id="education" className="border-t border-border">
+    <Section id="education" className="border-t-2 border-border">
       <SectionHeader
         index="02."
         title="Education"
@@ -32,32 +32,32 @@ export default function Education() {
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         className="card overflow-hidden"
       >
-        {/* Top accent line */}
-        <div className="h-1 w-full bg-gradient-to-r from-gold-light via-gold to-gold-light" />
+        {/* Top accent bar */}
+        <div className="h-2 w-full bg-gold" />
 
         <div className="p-8 md:p-12">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-            <div className="flex gap-5">
-              <div className="flex-shrink-0 mt-1">
-                <div className="h-12 w-12 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
-                  <GraduationCap size={22} className="text-gold" />
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="h-16 w-16 rounded-2xl bg-gold flex items-center justify-center shadow-card">
+                  <GraduationCap size={28} className="text-white" strokeWidth={2.5} />
                 </div>
               </div>
 
               <div>
-                <h3 className="font-display text-3xl font-bold text-ink md:text-5xl leading-tight">
+                <h3 className="text-3xl font-black text-ink md:text-5xl leading-tight">
                   {EDUCATION.school}
                 </h3>
-                <p className="mt-3 text-xl text-ink-2 font-semibold">
+                <p className="mt-3 text-xl md:text-2xl text-gold font-bold">
                   {EDUCATION.degree}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-5 text-base text-ink-2 font-medium">
+                <div className="mt-5 flex flex-wrap gap-5 text-base text-ink-2 font-semibold">
                   <span className="flex items-center gap-2">
-                    <MapPin size={16} className="text-gold" />
+                    <MapPin size={17} className="text-gold" strokeWidth={2.5} />
                     {EDUCATION.location}
                   </span>
                   <span className="flex items-center gap-2">
-                    <CalendarCheck size={16} className="text-gold" />
+                    <CalendarCheck size={17} className="text-gold" strokeWidth={2.5} />
                     {EDUCATION.graduation}
                   </span>
                 </div>
@@ -65,13 +65,13 @@ export default function Education() {
             </div>
           </div>
 
-          <div className="mt-10 border-t border-border pt-8">
-            <h4 className="mb-5 flex items-center gap-2 label text-ink-3">
-              <BookOpen size={13} className="text-gold" />
+          <div className="mt-10 border-t-2 border-border pt-8">
+            <h4 className="mb-6 flex items-center gap-2 label text-gold text-sm">
+              <BookOpen size={15} strokeWidth={2.5} />
               Relevant Coursework
             </h4>
 
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-3">
               {EDUCATION.coursework.map((c, i) => (
                 <motion.span
                   key={c}

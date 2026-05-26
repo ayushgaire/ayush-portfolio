@@ -11,7 +11,6 @@ const CLIENT_WORK = [
     tech: ['React', 'Tailwind CSS', 'Framer Motion'],
     image: '/projects/raman-project.jpg',
     url: 'https://www.ramandahal.com/',
-    accent: '#c4955a',
   },
   {
     name: 'Gedion Gizaw Portfolio',
@@ -20,31 +19,30 @@ const CLIENT_WORK = [
     tech: ['React', 'Tailwind CSS', '3D UI'],
     image: '/projects/gedion-project.jpg',
     url: 'https://www.gediontilahungizaw.com/',
-    accent: '#8b6f47',
   },
 ]
 
-function WorkCover({ name, image, accent }) {
+function WorkCover({ name, image }) {
   const [error, setError] = useState(false)
   if (error) {
     return (
       <div
-        className="relative h-60 w-full overflow-hidden flex items-center justify-center"
+        className="relative h-64 w-full overflow-hidden flex items-center justify-center"
         style={{
-          background: `linear-gradient(135deg, #f7f5f1 0%, #ffffff 50%, #fdf8f3 100%)`,
+          background: `linear-gradient(135deg, #f7eddc 0%, #ffffff 50%, #faf6ec 100%)`,
         }}
       >
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-40"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(196,149,90,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(196,149,90,0.08) 1px, transparent 1px)',
+              'linear-gradient(rgba(176,131,68,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(176,131,68,0.12) 1px, transparent 1px)',
             backgroundSize: '32px 32px',
           }}
         />
         <span
-          className="relative font-display text-4xl font-bold text-ink text-center px-6"
-          style={{ letterSpacing: '-0.02em' }}
+          className="relative text-4xl md:text-5xl font-black text-ink text-center px-6"
+          style={{ letterSpacing: '-0.025em' }}
         >
           {name}
         </span>
@@ -52,7 +50,7 @@ function WorkCover({ name, image, accent }) {
     )
   }
   return (
-    <div className="overflow-hidden h-60">
+    <div className="overflow-hidden h-64">
       <img
         src={image}
         alt={name}
@@ -67,7 +65,7 @@ export default function ProfessionalWork() {
   return (
     <section
       id="client-work"
-      className="relative mx-auto w-full max-w-6xl px-6 py-28 md:py-36 border-t border-border"
+      className="relative mx-auto w-full max-w-7xl px-6 py-28 md:py-36 border-t-2 border-border"
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -76,15 +74,15 @@ export default function ProfessionalWork() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="mb-16 md:mb-20"
       >
-        <span className="section-num font-semibold">04b.</span>
+        <span className="section-num">04b.</span>
         <span className="section-rule" />
-        <h2 className="font-display text-6xl font-semibold tracking-tight text-ink md:text-8xl leading-[0.95]">
+        <h2 className="text-6xl font-black tracking-tight text-ink md:text-8xl leading-[0.9]">
           Client Work
         </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2 md:text-xl">
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-2 md:text-xl font-medium">
           Real-world portfolio websites designed and developed for professionals through{' '}
-          <span className="font-semibold text-ink">Codyza</span> — focused on premium
-          UI/UX and production-ready deployment.
+          <span className="font-extrabold text-ink">Codyza</span> — focused on premium UI/UX
+          and production-ready deployment.
         </p>
       </motion.div>
 
@@ -99,13 +97,13 @@ export default function ProfessionalWork() {
             viewport={{ once: true }}
             className="group card card-hover overflow-hidden"
           >
-            <WorkCover name={w.name} image={w.image} accent={w.accent} />
+            <WorkCover name={w.name} image={w.image} />
 
             <div className="p-7">
-              <h3 className="font-display text-3xl font-bold text-ink mb-3 leading-tight">
+              <h3 className="text-3xl font-black text-ink mb-3 leading-tight">
                 {w.name}
               </h3>
-              <p className="text-base leading-relaxed text-ink-2 mb-5">
+              <p className="text-base md:text-lg leading-relaxed text-ink-2 mb-5 font-medium">
                 {w.description}
               </p>
 
@@ -113,7 +111,7 @@ export default function ProfessionalWork() {
                 {w.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-ink-2 font-medium"
+                    className="rounded-lg border-2 border-border bg-surface px-3 py-1 font-mono text-xs text-ink-2 font-semibold"
                   >
                     {t}
                   </span>
@@ -126,7 +124,7 @@ export default function ProfessionalWork() {
                 rel="noopener noreferrer"
                 className="btn-primary text-sm inline-flex"
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={15} strokeWidth={2.5} />
                 Visit Website
               </a>
             </div>

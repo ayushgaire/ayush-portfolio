@@ -14,23 +14,23 @@ export default function Loader() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-display text-5xl font-light tracking-wide text-ink"
+          className="text-6xl font-extrabold tracking-tight text-ink"
         >
-          Ayush<span className="text-gold italic">.</span>
+          Ayush<span className="text-gold">.</span>
         </motion.div>
 
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="h-px w-24 origin-left bg-gold"
+          className="h-1 w-32 origin-left bg-gold rounded-full"
         />
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.5, 0] }}
+          animate={{ opacity: [0, 0.7, 0] }}
           transition={{ duration: 1.4, delay: 0.4, repeat: Infinity }}
-          className="label text-ink-3"
+          className="label text-gold"
         >
           Loading
         </motion.p>

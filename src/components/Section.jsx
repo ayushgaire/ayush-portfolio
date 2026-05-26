@@ -4,7 +4,7 @@ export function Section({ id, children, className = '' }) {
   return (
     <section
       id={id}
-      className={`relative mx-auto w-full max-w-6xl px-6 py-28 md:py-36 ${className}`}
+      className={`relative mx-auto w-full max-w-7xl px-6 py-28 md:py-36 ${className}`}
     >
       {children}
     </section>
@@ -20,13 +20,13 @@ export function SectionHeader({ index, title, subtitle }) {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="mb-16 md:mb-20"
     >
-      <span className="section-num font-semibold">{index}</span>
+      <span className="section-num">{index}</span>
       <span className="section-rule" />
-      <h2 className="font-display text-6xl font-semibold tracking-tight text-ink md:text-8xl leading-[0.95]">
+      <h2 className="text-6xl font-black tracking-tight text-ink md:text-8xl leading-[0.9]">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2 md:text-xl font-normal">
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-2 md:text-xl font-medium">
           {subtitle}
         </p>
       )}

@@ -37,14 +37,14 @@ const SKILLS = [
 
 export default function Skills() {
   return (
-    <Section id="skills" className="border-t border-border">
+    <Section id="skills" className="border-t-2 border-border">
       <SectionHeader
         index="03."
         title="Skills"
         subtitle="A versatile toolkit spanning languages, frameworks, infrastructure — and the human languages that connect them."
       />
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {SKILLS.map((s, i) => (
           <motion.div
             key={s.group}
@@ -53,16 +53,16 @@ export default function Skills() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-40px' }}
-            className={`card card-hover p-6 ${i === 3 ? 'lg:col-span-2' : ''}`}
+            className={`card card-hover p-7 ${i === 3 ? 'lg:col-span-2' : ''}`}
           >
-            <div className="flex items-start justify-between mb-5">
-              <h3 className="font-display text-2xl font-bold text-ink">
+            <div className="flex items-start justify-between mb-6">
+              <h3 className="text-2xl font-extrabold text-ink">
                 {s.group}
               </h3>
-              <span className="label text-gold font-semibold mt-1">{s.note}</span>
+              <span className="label text-gold mt-1.5">{s.note}</span>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {s.items.map((it) => (
                 <span key={it} className="tag">
                   {it}

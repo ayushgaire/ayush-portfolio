@@ -36,34 +36,29 @@ function ProfileVisual() {
       transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative flex justify-center lg:justify-end"
     >
-      {/* Warm paper backing — visible behind/around the image */}
+      {/* Warm cream backing — paper-like, slightly offset */}
       <div
-        className="absolute -top-8 -left-8 -right-2 -bottom-2 rounded-[2rem] bg-surface border border-border"
+        className="absolute -top-8 -left-8 -right-2 -bottom-2 rounded-[2rem] bg-surface border-2 border-border"
         style={{ zIndex: 0 }}
       />
 
-      {/* Decorative corner lines — warm editorial detail */}
-      <div className="absolute -top-12 -right-4 w-16 h-px bg-gold opacity-50 z-20" />
-      <div className="absolute -top-12 -right-4 w-px h-16 bg-gold opacity-50 z-20" />
-      <div className="absolute -bottom-6 -left-12 w-14 h-px bg-gold opacity-40 z-20" />
-      <div className="absolute -bottom-6 -left-12 w-px h-14 bg-gold opacity-40 z-20" />
+      {/* Decorative corner brackets */}
+      <div className="absolute -top-12 -right-4 w-20 h-1 bg-gold rounded-full z-20" />
+      <div className="absolute -top-12 -right-4 w-1 h-20 bg-gold rounded-full z-20" />
+      <div className="absolute -bottom-6 -left-12 w-16 h-1 bg-gold rounded-full z-20" />
+      <div className="absolute -bottom-6 -left-12 w-1 h-16 bg-gold rounded-full z-20" />
 
-      {/* Outer gold ring frame (matches warm theme, integrates with dark photo) */}
+      {/* Outer gold frame */}
       <div
-        className="relative z-10 rounded-[1.4rem] p-2"
+        className="relative z-10 rounded-[1.5rem] p-3"
         style={{
-          background: 'linear-gradient(135deg, #f7f5f1 0%, #ffffff 50%, #f0ece6 100%)',
-          boxShadow: '0 24px 80px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(196,149,90,0.18)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #f7eddc 50%, #ffffff 100%)',
+          boxShadow: '0 24px 80px rgba(60,45,20,0.15), 0 0 0 2px rgba(176,131,68,0.25)',
         }}
       >
-        {/* Inner gold accent ring */}
         <div
-          className="overflow-hidden rounded-[1rem] relative"
-          style={{
-            width: 340,
-            height: 400,
-            boxShadow: 'inset 0 0 0 1.5px rgba(196,149,90,0.35)',
-          }}
+          className="overflow-hidden rounded-[1.1rem] relative bg-card"
+          style={{ width: 360, height: 420 }}
         >
           {imgOk ? (
             <img
@@ -75,7 +70,7 @@ function ProfileVisual() {
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center bg-surface">
-              <span className="font-display text-8xl font-medium text-gold">AG</span>
+              <span className="text-8xl font-extrabold text-gold">AG</span>
             </div>
           )}
 
@@ -84,40 +79,34 @@ function ProfileVisual() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'radial-gradient(ellipse at center, transparent 55%, rgba(196,149,90,0.10) 100%)',
-            }}
-          />
-          {/* Bottom warm fade */}
-          <div
-            className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to top, rgba(247,245,241,0.45), transparent)',
+                'radial-gradient(ellipse at center, transparent 50%, rgba(176,131,68,0.15) 100%)',
             }}
           />
         </div>
       </div>
 
-      {/* Floating Codyza badge — strong & legible */}
+      {/* Floating Codyza badge — big, strong, legible */}
       <motion.a
         href={SOCIALS.codyza}
         target="_blank"
         rel="noreferrer"
-        animate={{ y: [0, -6, 0] }}
+        animate={{ y: [0, -8, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -bottom-7 -right-6 z-30 flex items-center gap-3 rounded-2xl bg-card border border-border shadow-card-hover px-5 py-3.5"
+        className="absolute -bottom-8 -right-6 z-30 flex items-center gap-3 rounded-2xl bg-card border-2 border-border shadow-card-hover px-6 py-4"
         aria-label="Visit Codyza"
       >
-        <span className="font-display text-2xl font-semibold text-gold leading-none">C</span>
-        <div>
-          <p className="label leading-none text-ink-3 mb-1">Founder</p>
-          <p className="text-sm font-bold text-ink leading-none">Codyza</p>
+        <div className="h-12 w-12 rounded-xl bg-ink flex items-center justify-center">
+          <span className="text-2xl font-extrabold text-gold leading-none">C</span>
         </div>
-        <ArrowUpRight size={14} className="text-ink-2" />
+        <div>
+          <p className="label leading-none text-gold mb-1.5">Founder</p>
+          <p className="text-base font-extrabold text-ink leading-none">Codyza</p>
+        </div>
+        <ArrowUpRight size={16} className="text-ink-2" strokeWidth={2.5} />
       </motion.a>
 
       {/* Three decorative dots */}
-      <div className="absolute -right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2.5 z-20">
+      <div className="absolute -right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-3 z-20">
         {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
@@ -138,67 +127,68 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-16"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-36 pb-16"
     >
-      <div className="w-full max-w-6xl mx-auto grid items-center gap-16 lg:grid-cols-[1.15fr_1fr]">
+      <div className="w-full max-w-7xl mx-auto grid items-center gap-16 lg:grid-cols-[1.15fr_1fr]">
 
         {/* Left content */}
         <div className="order-2 lg:order-1">
 
           {/* Founder label */}
-          <motion.div {...anim(1.9)} className="flex items-center gap-3 mb-8">
-            <span className="label">Founder & CEO of</span>
+          <motion.div {...anim(1.9)} className="flex items-center gap-3 mb-10">
+            <span className="h-1 w-8 bg-gold rounded-full" />
+            <span className="label text-gold">Founder & CEO of</span>
             <a
               href={SOCIALS.codyza}
               target="_blank"
               rel="noreferrer"
-              className="label text-gold hover:text-ink transition-colors flex items-center gap-1"
+              className="label text-ink hover:text-gold transition-colors flex items-center gap-1"
             >
               Codyza
-              <ArrowUpRight size={11} />
+              <ArrowUpRight size={12} strokeWidth={3} />
             </a>
           </motion.div>
 
-          {/* Cinematic heading — bolder, heavier */}
+          {/* Cinematic heading — big, bold, normal sans-serif */}
           <div className="overflow-hidden">
             <motion.h1
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display font-semibold leading-[0.86] tracking-tight text-ink"
-              style={{ fontSize: 'clamp(80px, 11vw, 144px)' }}
+              className="font-black leading-[0.85] tracking-tight text-ink"
+              style={{ fontSize: 'clamp(72px, 11vw, 148px)' }}
             >
               Ayush
               <br />
-              <em className="not-italic">Gaire.</em>
+              <span className="text-gold">Gaire.</span>
             </motion.h1>
           </div>
 
-          {/* Role underline — bolder, bigger */}
+          {/* Role */}
           <motion.div
             {...anim(2.2)}
             className="mt-8 flex items-center gap-4"
           >
-            <div className="h-[2px] w-10 bg-gold flex-shrink-0" />
-            <p className="text-ink font-semibold text-xl md:text-2xl leading-snug">
+            <div className="h-1 w-12 bg-gold rounded-full flex-shrink-0" />
+            <p className="text-ink font-bold text-2xl md:text-3xl leading-snug">
               Full Stack Developer &amp; <span className="text-gold">Founder</span>
             </p>
           </motion.div>
 
-          {/* Description — larger, more readable */}
+          {/* Description */}
           <motion.p
             {...anim(2.4)}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2"
+            className="mt-7 max-w-xl text-lg md:text-xl leading-relaxed text-ink-2 font-medium"
           >
             Crafting{' '}
-            <span className="font-semibold text-ink">elegant, high-performance digital products</span>
+            <span className="font-bold text-ink">elegant, high-performance digital products</span>
             {' '}across three continents. Computer Science at{' '}
-            <span className="font-semibold text-ink">SMSU</span>, building{' '}
+            <span className="font-bold text-ink">SMSU</span>, building{' '}
             <a
               href={SOCIALS.codyza}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-ink underline underline-offset-4 decoration-gold decoration-2 hover:decoration-ink transition-all"
+              className="font-bold text-ink underline underline-offset-4 decoration-gold decoration-[3px] hover:decoration-ink transition-all"
             >
               Codyza
             </a>{' '}
@@ -208,13 +198,13 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             {...anim(2.6)}
-            className="mt-10 flex flex-wrap gap-3"
+            className="mt-12 flex flex-wrap gap-4"
           >
             <button
               onClick={() => go('projects')}
               className="btn-primary"
             >
-              <FolderGit2 size={15} />
+              <FolderGit2 size={17} strokeWidth={2.5} />
               View Projects
             </button>
             <a
@@ -222,14 +212,14 @@ export default function Hero() {
               download
               className="btn-secondary"
             >
-              <Download size={15} />
+              <Download size={17} strokeWidth={2.5} />
               Resume
             </a>
             <button
               onClick={() => go('contact')}
               className="btn-ghost"
             >
-              <Mail size={14} />
+              <Mail size={16} strokeWidth={2.5} />
               Say Hello
             </button>
           </motion.div>
@@ -237,9 +227,9 @@ export default function Hero() {
           {/* Social links */}
           <motion.div
             {...anim(2.8)}
-            className="mt-10 flex items-center gap-1"
+            className="mt-12 flex items-center gap-3"
           >
-            <span className="label mr-3">Find me on</span>
+            <span className="label text-gold mr-2">Find me on</span>
             {socialList.map(({ Icon, url, label }) => (
               <a
                 key={label}
@@ -247,9 +237,9 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="grid h-9 w-9 place-items-center rounded-lg border border-border text-ink-3 hover:border-ink hover:text-ink transition-all duration-200 bg-card"
+                className="grid h-11 w-11 place-items-center rounded-xl border-2 border-border bg-card text-ink-2 hover:border-gold hover:bg-gold hover:text-white transition-all duration-200"
               >
-                <Icon size={15} />
+                <Icon size={17} strokeWidth={2.2} />
               </a>
             ))}
           </motion.div>
@@ -270,11 +260,11 @@ export default function Hero() {
           opacity: { delay: 3.2, duration: 1 },
           y: { repeat: Infinity, duration: 2.4, ease: 'easeInOut' },
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink-3"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink-3 font-bold"
         aria-label="Scroll down"
       >
-        <span className="label">Scroll</span>
-        <ArrowDown size={14} className="text-gold" />
+        <span className="label text-gold">Scroll</span>
+        <ArrowDown size={18} className="text-gold" strokeWidth={2.5} />
       </motion.button>
     </section>
   )

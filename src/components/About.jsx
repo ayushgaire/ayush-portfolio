@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, fadeUp } from './Section'
-import { JOURNEY } from '../data/content'
-import { SOCIALS } from '../data/content'
+import { JOURNEY, SOCIALS } from '../data/content'
 
 const pillars = [
   {
@@ -20,14 +19,14 @@ const pillars = [
 
 export default function About() {
   return (
-    <Section id="about" className="border-t border-border">
+    <Section id="about" className="border-t-2 border-border">
       <SectionHeader
         index="01."
         title="About"
         subtitle="A motivated Computer Science student at Southwest Minnesota State University with a passion for software engineering, full-stack development, and technology-driven innovation."
       />
 
-      <div className="grid gap-20 lg:grid-cols-[1.1fr_1fr]">
+      <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr]">
 
         {/* Left — Storytelling text & pillars */}
         <motion.div
@@ -37,29 +36,29 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <p className="text-lg leading-loose text-ink-2 md:text-xl">
+          <p className="text-xl leading-relaxed text-ink-2 md:text-2xl font-medium">
             Experienced across{' '}
-            <span className="text-ink font-bold">Nepal, Japan, and the United States</span>
+            <span className="text-ink font-extrabold">Nepal, Japan, and the United States</span>
             {' '}with strong multicultural communication, leadership, and project
             development experience.
           </p>
-          <p className="text-lg leading-loose text-ink-2">
+          <p className="text-lg leading-relaxed text-ink-2 font-medium">
             From founding{' '}
             <a
               href={SOCIALS.codyza}
               target="_blank"
               rel="noreferrer"
-              className="text-ink font-bold underline underline-offset-4 decoration-gold decoration-2 hover:decoration-ink transition-all"
+              className="text-ink font-bold underline underline-offset-4 decoration-gold decoration-[3px] hover:decoration-ink transition-all"
             >
               Codyza
             </a>
             {' '}to competing at{' '}
-            <span className="text-ink font-semibold">national-level athletics in Japan</span>,
+            <span className="text-ink font-bold">national-level athletics in Japan</span>,
             my journey blends discipline, creativity, and a builder's mindset.
           </p>
 
           {/* Pillars */}
-          <div className="space-y-4 pt-2">
+          <div className="space-y-4 pt-4">
             {pillars.map(({ title, text }, i) => (
               <motion.div
                 key={title}
@@ -68,14 +67,14 @@ export default function About() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="card card-hover flex gap-5 p-5"
+                className="card card-hover flex gap-5 p-6"
               >
-                <div className="mt-1 flex-shrink-0">
-                  <div className="dot-gold" style={{ opacity: 1 }} />
+                <div className="mt-1.5 flex-shrink-0">
+                  <div className="h-3 w-3 rounded-full bg-gold" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-ink text-base mb-1.5">{title}</h4>
-                  <p className="text-sm leading-relaxed text-ink-2">{text}</p>
+                  <h4 className="font-extrabold text-ink text-lg mb-2">{title}</h4>
+                  <p className="text-base leading-relaxed text-ink-2 font-medium">{text}</p>
                 </div>
               </motion.div>
             ))}
@@ -83,7 +82,7 @@ export default function About() {
         </motion.div>
 
         {/* Right — Journey timeline */}
-        <div className="relative pl-8">
+        <div className="relative pl-10">
           <div className="timeline-line" />
 
           {JOURNEY.map((j, i) => (
@@ -97,19 +96,19 @@ export default function About() {
               className="relative mb-10 last:mb-0"
             >
               {/* Timeline dot */}
-              <span className="absolute -left-[33px] top-5 h-3 w-3 rounded-full bg-gold border-2 border-bg shadow-sm" />
+              <span className="absolute -left-[42px] top-6 h-4 w-4 rounded-full bg-gold border-4 border-bg shadow-sm" />
 
-              <div className="card card-hover p-6">
+              <div className="card card-hover p-7">
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="font-display text-3xl font-bold flex items-center gap-3 text-ink">
+                  <h3 className="text-3xl font-extrabold flex items-center gap-3 text-ink">
                     <span className="text-3xl">{j.flag}</span>
                     {j.country}
                   </h3>
-                  <span className="label text-gold font-bold whitespace-nowrap pt-1">
+                  <span className="label text-gold whitespace-nowrap pt-2">
                     {j.period}
                   </span>
                 </div>
-                <p className="text-base leading-relaxed text-ink-2">
+                <p className="text-base leading-relaxed text-ink-2 font-medium">
                   {j.text}
                 </p>
               </div>

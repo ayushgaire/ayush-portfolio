@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Linkedin, Github, Instagram, Facebook, ArrowUp } from 'lucide-react'
 import { SOCIALS } from '../data/content'
 
@@ -11,20 +10,19 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border px-6 py-14 bg-surface">
-      <div className="mx-auto max-w-6xl">
+    <footer className="relative border-t-2 border-border px-6 py-16 bg-bg-deep">
+      <div className="mx-auto max-w-7xl">
 
-        {/* Top row */}
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between mb-10">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="group flex items-center gap-3"
           >
-            <span className="font-display text-2xl font-light text-ink">
-              Ayush<span className="text-gold italic">.</span>
+            <span className="text-3xl font-extrabold tracking-tight text-ink">
+              Ayush<span className="text-gold">.</span>
             </span>
-            <span className="h-8 w-8 rounded-lg border border-border bg-card text-ink-3 group-hover:border-gold group-hover:text-gold transition-all duration-300 flex items-center justify-center">
-              <ArrowUp size={14} />
+            <span className="h-10 w-10 rounded-xl border-2 border-border bg-card text-ink-2 group-hover:border-gold group-hover:bg-gold group-hover:text-white transition-all duration-300 flex items-center justify-center">
+              <ArrowUp size={16} strokeWidth={2.5} />
             </span>
           </button>
 
@@ -36,20 +34,19 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="h-9 w-9 rounded-lg border border-border bg-card text-ink-3 hover:border-gold hover:text-gold transition-all duration-200 flex items-center justify-center"
+                className="h-11 w-11 rounded-xl border-2 border-border bg-card text-ink-2 hover:border-gold hover:bg-gold hover:text-white transition-all duration-200 flex items-center justify-center"
               >
-                <Icon size={14} />
+                <Icon size={16} strokeWidth={2.2} />
               </a>
             ))}
           </div>
         </div>
 
-        {/* Bottom row */}
-        <div className="border-t border-border pt-8 flex flex-col items-center gap-2 md:flex-row md:justify-between text-center">
-          <p className="text-xs text-ink-3">
+        <div className="border-t-2 border-border pt-8 flex flex-col items-center gap-2 md:flex-row md:justify-between text-center">
+          <p className="text-sm text-ink-2 font-semibold">
             © 2026 Ayush Gaire. All rights reserved.
           </p>
-          <p className="font-mono text-xs text-ink-3">
+          <p className="font-mono text-xs text-ink-2 font-semibold">
             Built with React + Vite · Deployed on Vercel
           </p>
         </div>

@@ -48,7 +48,7 @@ function Counter({ value }) {
   }, [inView, isNum, numeric])
 
   return (
-    <span ref={ref} className="font-display text-6xl font-bold text-ink md:text-7xl">
+    <span ref={ref} className="text-7xl font-black text-ink md:text-8xl">
       {isNum ? n : value}
     </span>
   )
@@ -56,7 +56,7 @@ function Counter({ value }) {
 
 export default function Achievements() {
   return (
-    <Section id="achievements" className="border-t border-border">
+    <Section id="achievements" className="border-t-2 border-border">
       <SectionHeader
         index="07."
         title="Achievements"
@@ -71,27 +71,26 @@ export default function Achievements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="card card-hover p-7 text-center"
+            className="card card-hover p-8 text-center"
           >
-            {/* Top gold accent bar */}
-            <div className="h-px w-8 bg-gold mx-auto mb-6" />
+            <div className="h-1.5 w-12 bg-gold mx-auto mb-7 rounded-full" />
 
-            <div className="mb-3">
+            <div className="mb-3 flex items-baseline justify-center">
               <Counter value={stat} />
               {stat.includes('+') && (
-                <span className="font-display text-5xl font-bold text-gold">+</span>
+                <span className="text-5xl md:text-6xl font-black text-gold">+</span>
               )}
             </div>
 
-            <p className="label text-gold font-bold mb-4">{label}</p>
+            <p className="label text-gold mb-5">{label}</p>
 
-            <div className="h-px w-8 bg-border mx-auto mb-4" />
+            <div className="h-px w-12 bg-border mx-auto mb-5" />
 
             <p className="text-base leading-relaxed text-ink-2 font-medium">{detail}</p>
 
             <div className="mt-6 flex justify-center">
-              <div className="h-9 w-9 rounded-xl bg-gold-pale border border-gold-light flex items-center justify-center">
-                <Icon size={15} className="text-gold" />
+              <div className="h-12 w-12 rounded-xl bg-gold flex items-center justify-center">
+                <Icon size={18} className="text-white" strokeWidth={2.5} />
               </div>
             </div>
           </motion.div>
