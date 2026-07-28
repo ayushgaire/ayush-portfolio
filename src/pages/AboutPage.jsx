@@ -98,7 +98,7 @@ export default function AboutPage() {
               Ayush Gaire
             </h1>
             <p className="mt-4 text-lg sm:text-xl font-bold text-gold">
-              Computer Science Student · Co-Founder of{' '}
+              Computer Science Student · Founder of{' '}
               <a
                 href={SOCIALS.codyza}
                 target="_blank"
@@ -131,7 +131,7 @@ export default function AboutPage() {
               development experience.
             </p>
             <p className="text-lg leading-relaxed text-ink-2 font-medium">
-              From co-founding{' '}
+              From founding{' '}
               <a
                 href={SOCIALS.codyza}
                 target="_blank"

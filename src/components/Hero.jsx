@@ -140,9 +140,9 @@ export default function Hero() {
             {...anim(2.1)}
             className="text-base sm:text-lg md:text-xl font-bold text-ink-2 leading-snug mb-6"
           >
-            Computer Science Student <span className="text-gold">•</span>{' '}
-            Full Stack Developer <span className="text-gold">•</span>{' '}
-            Entrepreneur
+            Software Engineer <span className="text-gold">•</span>{' '}
+            Full-Stack Developer <span className="text-gold">•</span>{' '}
+            Founder of Codyza
           </motion.p>
 
           {/* Bio paragraph 1 */}
@@ -152,11 +152,11 @@ export default function Hero() {
           >
             Born in{' '}
             <span className="font-bold text-ink">Nepal</span>, educated in{' '}
-            <span className="font-bold text-ink">Japan</span>, and currently
-            pursuing Computer Science in the{' '}
-            <span className="font-bold text-ink">United States</span>. I enjoy
-            building products, websites, and communities that create real-world
-            impact. As the Founder & CEO of{' '}
+            <span className="font-bold text-ink">Japan</span>, and now studying
+            Computer Science in the{' '}
+            <span className="font-bold text-ink">United States</span>. I'm a{' '}
+            <span className="font-bold text-ink">software engineer</span> who
+            turns hard problems into clean, working products. As the Founder of{' '}
             <a
               href={SOCIALS.codyza}
               target="_blank"
@@ -165,9 +165,8 @@ export default function Hero() {
             >
               Codyza
             </a>
-            , I lead a volunteer-driven initiative helping students gain
-            practical experience while supporting local businesses through
-            technology.
+            , I build the software, websites, and systems that help real
+            businesses and communities.
           </motion.p>
 
           {/* Bio paragraph 2 */}
@@ -175,12 +174,15 @@ export default function Hero() {
             {...anim(2.3)}
             className="text-base leading-relaxed text-ink-2 font-medium mb-6 max-w-2xl"
           >
-            My journey across three countries has shaped my perspective on
-            technology, leadership, and collaboration. I am passionate about{' '}
-            <span className="font-bold text-ink">software engineering</span>,{' '}
-            <span className="font-bold text-ink">entrepreneurship</span>,{' '}
-            <span className="font-bold text-ink">cloud technologies</span>, and
-            building solutions that solve meaningful problems.
+            I like working close to the logic — designing{' '}
+            <span className="font-bold text-ink">algorithms</span>, structuring
+            data, and{' '}
+            <span className="font-bold text-ink">
+              connecting systems, APIs, and interfaces
+            </span>{' '}
+            into products that actually ship. My focus is software engineering,
+            problem solving, and building technology that solves meaningful,
+            real-world problems.
           </motion.p>
 
           {/* Info row */}

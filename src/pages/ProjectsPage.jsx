@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import {
-  ExternalLink,
-  Github,
-  ArrowUpRight,
-  ArrowLeft,
-  Check,
-} from 'lucide-react'
+import { Github, ArrowUpRight, ArrowLeft } from 'lucide-react'
 import { PROJECTS } from '../data/content'
 
 function ProjectCover({ name, image, accent, tagline }) {
@@ -16,7 +10,7 @@ function ProjectCover({ name, image, accent, tagline }) {
   if (imgError || !image) {
     return (
       <div
-        className="relative h-64 w-full overflow-hidden rounded-2xl flex flex-col items-center justify-center text-center px-6 border-2 border-border"
+        className="relative h-44 w-full overflow-hidden rounded-2xl flex flex-col items-center justify-center text-center px-6 border-2 border-border"
         style={{
           background:
             'linear-gradient(135deg, #f7eddc 0%, #ffffff 50%, #faf6ec 100%)',
@@ -38,46 +32,38 @@ function ProjectCover({ name, image, accent, tagline }) {
           className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full blur-3xl opacity-25"
           style={{ background: accent }}
         />
-        <span className="relative label text-gold mb-4">{tagline}</span>
+        <span className="relative label text-gold mb-3">{tagline}</span>
         <h3
-          className="relative text-5xl md:text-6xl font-black text-ink leading-none"
+          className="relative text-4xl md:text-5xl font-black text-ink leading-none"
           style={{ letterSpacing: '-0.025em' }}
         >
           {name}
         </h3>
-        <div className="relative mt-5 flex items-center gap-2">
-          <div className="h-1 w-14 bg-gold rounded-full" />
+        <div className="relative mt-4 flex items-center gap-2">
+          <div className="h-1 w-10 bg-gold rounded-full" />
           <span
-            className="h-3 w-3 rounded-full"
+            className="h-2.5 w-2.5 rounded-full"
             style={{ background: accent }}
           />
-          <div className="h-1 w-14 bg-gold rounded-full" />
+          <div className="h-1 w-10 bg-gold rounded-full" />
         </div>
       </div>
     )
   }
 
   return (
-    <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-surface border-2 border-border">
+    <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-surface border-2 border-border">
       <img
         src={image}
-        alt={name}
+        alt={`${name} — ${tagline}`}
+        loading="lazy"
         onError={() => setImgError(true)}
-        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
-        <span
-          className="text-3xl font-black text-white"
-          style={{ textShadow: '0 2px 16px rgba(0,0,0,0.5)' }}
-        >
-          {name}
-        </span>
-        <div
-          className="h-3 w-3 rounded-full"
-          style={{ background: accent, boxShadow: `0 0 16px ${accent}` }}
-        />
-      </div>
+      <div
+        className="absolute bottom-0 left-0 right-0 h-1 opacity-80"
+        style={{ background: accent }}
+      />
     </div>
   )
 }
@@ -126,20 +112,20 @@ export default function ProjectsPage() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-5 sm:px-6 pb-24 md:pb-32">
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((p, i) => (
             <motion.article
               key={p.name}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.8,
-                delay: 0.2 + i * 0.08,
+                duration: 0.7,
+                delay: 0.15 + i * 0.07,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="group card card-hover flex flex-col overflow-hidden"
             >
-              <div className="p-5 pb-0">
+              <div className="p-4 pb-0">
                 <ProjectCover
                   name={p.name}
                   image={p.image}
@@ -148,75 +134,75 @@ export default function ProjectsPage() {
                 />
               </div>
 
-              <div className="flex flex-1 flex-col p-7 pt-5">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div>
-                    <p className="label text-gold mb-2">{p.tagline}</p>
-                    <h3 className="text-3xl font-black text-ink leading-tight">
-                      {p.name}
-                    </h3>
-                  </div>
+              <div className="flex flex-1 flex-col p-5">
+                <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                  <p className="label text-gold">{p.tagline}</p>
+                  {p.role && (
+                    <span className="inline-flex items-center rounded-full bg-gold-pale border border-gold/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest font-bold text-gold">
+                      {p.role}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-start justify-between gap-2 mb-2.5">
+                  <h3 className="text-xl font-black text-ink leading-tight">
+                    {p.name}
+                  </h3>
                   <ArrowUpRight
-                    size={22}
+                    size={18}
                     strokeWidth={2.5}
-                    className="mt-2 flex-shrink-0 text-ink-3 transition-all duration-300 group-hover:text-gold group-hover:rotate-12"
+                    className="mt-0.5 flex-shrink-0 text-ink-3 transition-all duration-300 group-hover:text-gold group-hover:rotate-12"
                   />
                 </div>
 
-                <p className="text-base md:text-lg leading-relaxed text-ink-2 font-medium mb-5">
+                <p className="text-sm leading-relaxed text-ink-2 font-medium mb-4 line-clamp-3">
                   {p.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-6">
-                  {p.features.map((f) => (
-                    <span
-                      key={f}
-                      className="flex items-center gap-2 text-sm text-ink-2 font-semibold"
-                    >
-                      <Check
-                        size={14}
-                        className="text-gold flex-shrink-0"
-                        strokeWidth={3}
-                      />
-                      {f}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {p.tech.map((t) => (
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {p.tech.slice(0, 4).map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border-2 border-border bg-surface px-3 py-1 font-mono text-xs text-ink-2 font-semibold"
+                      className="rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[10px] text-ink-2 font-semibold"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-auto flex gap-3">
-                  {p.live && (
+                <div className="mt-auto pt-1">
+                  {p.live ? (
                     <a
                       href={p.live}
                       target="_blank"
-                      rel="noreferrer"
-                      className="btn-primary text-sm py-3 px-6"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${p.name} website (opens in a new tab)`}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:text-gold transition-colors group/cta"
                     >
-                      <ExternalLink size={15} strokeWidth={2.5} />
-                      Live Demo
+                      Visit Website
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={2.5}
+                        className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                      />
                     </a>
+                  ) : p.github ? (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${p.name} on GitHub (opens in a new tab)`}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:text-gold transition-colors"
+                    >
+                      <Github size={14} strokeWidth={2.5} />
+                      View on GitHub
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 text-sm font-bold text-ink-3">
+                      <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+                      In Development
+                    </span>
                   )}
-                  <a
-                    href={p.github || '#'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`btn-secondary text-sm py-3 px-6 ${
-                      !p.github ? 'opacity-40 pointer-events-none' : ''
-                    }`}
-                  >
-                    <Github size={15} strokeWidth={2.5} />
-                    GitHub
-                  </a>
                 </div>
               </div>
             </motion.article>

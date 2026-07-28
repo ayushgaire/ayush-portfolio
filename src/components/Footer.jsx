@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </button>
             <p className="text-base text-ink-2 font-medium max-w-md leading-relaxed">
-              Co-Founder of{' '}
+              Founder of{' '}
               <a
                 href={SOCIALS.codyza}
                 target="_blank"

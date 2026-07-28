@@ -1,8 +1,61 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowUpRight, Clock, Calendar } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  ArrowRight,
+  Clock,
+  Calendar,
+  User,
+  Sprout,
+} from 'lucide-react'
 import { ARTICLES, SOCIALS } from '../data/content'
+
+const relatedIcons = { Sprout }
+
+function RelatedProject({ related }) {
+  const Icon = relatedIcons[related.icon] || Sprout
+  const inner = (
+    <div className="mt-5 rounded-xl border-2 border-border bg-surface p-4 transition-colors group-hover:border-gold/50">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="grid h-7 w-7 place-items-center rounded-lg bg-gold-pale border-2 border-gold/40 text-gold">
+          <Icon size={14} strokeWidth={2.4} />
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-widest font-bold text-gold">
+          Related Project
+        </span>
+      </div>
+      <p className="font-black text-ink leading-tight">{related.name}</p>
+      <p className="mt-1 text-xs text-ink-2 font-medium leading-relaxed">
+        {related.description}
+      </p>
+      {related.href && (
+        <span className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-bold text-ink group-hover:text-gold transition-colors">
+          {related.cta || `View ${related.name}`}
+          <ArrowRight size={12} strokeWidth={2.5} />
+        </span>
+      )}
+    </div>
+  )
+
+  // Link out to the live project when we have a URL; otherwise keep it as a
+  // non-interactive info block (the whole card already links to the article).
+  return related.href ? (
+    <a
+      href={related.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${related.cta || `View ${related.name}`} (opens in a new tab)`}
+      onClick={(e) => e.stopPropagation()}
+      className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+    >
+      {inner}
+    </a>
+  ) : (
+    inner
+  )
+}
 
 export default function BlogPage() {
   useEffect(() => {
@@ -36,7 +89,7 @@ export default function BlogPage() {
           Articles
         </h1>
         <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-ink-2 md:text-xl font-medium">
-          Writing on cybersecurity, culture, and the future of technology — published on{' '}
+          Writing on agriculture technology, AI safety, and the future of building — published on{' '}
           <a
             href={SOCIALS.medium}
             target="_blank"
@@ -52,11 +105,8 @@ export default function BlogPage() {
       <section className="mx-auto w-full max-w-7xl px-5 sm:px-6 pb-24 md:pb-32">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {ARTICLES.map((a, i) => (
-            <motion.a
+            <motion.article
               key={a.title}
-              href={a.link}
-              target="_blank"
-              rel="noreferrer"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -65,7 +115,7 @@ export default function BlogPage() {
                 ease: [0.16, 1, 0.3, 1],
               }}
               whileHover={{ y: -6 }}
-              className="group card card-hover flex flex-col overflow-hidden"
+              className="group card card-hover relative flex flex-col overflow-hidden"
             >
               <div className="h-48 overflow-hidden relative">
                 <img
@@ -82,11 +132,27 @@ export default function BlogPage() {
                   {a.category}
                 </span>
 
-                <h3 className="text-lg font-black text-ink leading-snug transition-colors group-hover:text-gold flex-1">
-                  {a.title}
+                <h3 className="text-lg font-black text-ink leading-snug transition-colors group-hover:text-gold">
+                  {/* Stretched link — makes the whole card open the article */}
+                  <a
+                    href={a.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Read "${a.title}" on Medium (opens in a new tab)`}
+                    className="rounded after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  >
+                    {a.title}
+                  </a>
                 </h3>
 
-                <div className="mt-5 pt-4 border-t-2 border-border flex items-center justify-between text-xs text-ink-3 font-semibold">
+                {a.author && (
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-3 font-semibold">
+                    <User size={12} strokeWidth={2.5} />
+                    {a.author}
+                  </p>
+                )}
+
+                <div className="mt-4 pt-4 border-t-2 border-border flex items-center justify-between text-xs text-ink-3 font-semibold">
                   <span className="flex items-center gap-1.5">
                     <Calendar size={12} strokeWidth={2.5} />
                     {a.date}
@@ -97,7 +163,13 @@ export default function BlogPage() {
                   </span>
                 </div>
 
-                <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-ink group-hover:text-gold transition-colors">
+                {a.related && (
+                  <div className="relative z-10">
+                    <RelatedProject related={a.related} />
+                  </div>
+                )}
+
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-ink group-hover:text-gold transition-colors">
                   Read on Medium
                   <ArrowUpRight
                     size={14}
@@ -106,7 +178,7 @@ export default function BlogPage() {
                   />
                 </div>
               </div>
-            </motion.a>
+            </motion.article>
           ))}
         </div>
 

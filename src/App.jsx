@@ -11,6 +11,7 @@ import Loader from './components/Loader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Snapshot from './components/Snapshot'
+import FarmFixSpotlight from './components/FarmFixSpotlight'
 import ProjectsSummary from './components/ProjectsSummary'
 import ClientWorkSummary from './components/ClientWorkSummary'
 
@@ -35,6 +36,7 @@ function Home() {
     >
       <Hero />
       <Snapshot />
+      <FarmFixSpotlight />
       <ProjectsSummary />
       <ClientWorkSummary />
       <Suspense fallback={<div className="h-screen" />}>

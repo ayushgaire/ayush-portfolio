@@ -4,8 +4,8 @@ import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
 import { Section, SectionHeader } from './Section'
 import { PROJECTS } from '../data/content'
 
-// Featured = first 2 projects
-const FEATURED = PROJECTS.slice(0, 2)
+// FarmFix has its own spotlight section, so feature the next two ventures here.
+const FEATURED = PROJECTS.filter((p) => !p.spotlight).slice(0, 2)
 
 function FeaturedCard({ p, index }) {
   return (
@@ -31,8 +31,9 @@ function FeaturedCard({ p, index }) {
           {p.image ? (
             <img
               src={p.image}
-              alt={p.name}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              alt={`${p.name} — ${p.tagline}`}
+              loading="lazy"
+              className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}
@@ -102,8 +103,8 @@ export default function ProjectsSummary() {
     <Section id="projects" className="border-t-2 border-border">
       <SectionHeader
         index="03."
-        title="Featured Projects"
-        subtitle="Full-stack applications, gaming platforms, and productivity tools — shipped end to end."
+        title="Ventures & Projects"
+        subtitle="Startups and full-stack products built to solve real problems — from founding companies to shipping software end to end."
       />
 
       <div className="grid gap-6 md:grid-cols-2 mb-10">

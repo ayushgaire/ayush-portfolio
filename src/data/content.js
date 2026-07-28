@@ -7,9 +7,12 @@ export const SOCIALS = {
     instagram: 'https://www.instagram.com/aayushgairay',
     facebook: 'https://share.google/CLOj8erixElCQveqe',
     email: 'aayushgairay143@gmail.com',
+    teamEmail: 'team@codyza.com',
     appointment: 'https://calendly.com/aayushgairay143/30min',
     medium: 'https://medium.com/@aayushgairay',
     codyza: 'https://codyza.com/',
+    farmfix: 'https://farmfix-memory-zeta.vercel.app/',
+    nepalbuddy: 'https://nepalbuddy.com',
     website: 'https://ayushgaire.com/',
 }
 
@@ -25,10 +28,10 @@ export const NAV_LINKS = [
 ]
 
 export const ROLES = [
-    'Computer Science Student',
-    'Founder & CEO of Codyza',
+    'Software Engineer',
     'Full-Stack Developer',
-    'Builder of Real Software',
+    'Founder of Codyza',
+    'Problem Solver',
 ]
 
 export const JOURNEY = [{
@@ -42,14 +45,14 @@ export const JOURNEY = [{
         flag: '🇯🇵',
         country: 'Japan',
         period: '2020 — 2024',
-        text: 'Management, discipline and national-level athletics across four formative years.',
+        text: 'Agricultural education, management and discipline across four formative years — the inspiration behind FarmFix.',
     },
 
     {
         flag: '🇺🇸',
         country: 'United States',
         period: '2024 — Present',
-        text: 'Computer Science at SMSU, FOUNDER & CE0 Codyza, and building full-stack products.',
+        text: 'Computer Science at SMSU, Founder of Codyza, and building full-stack products that solve real problems.',
     },
 ]
 
@@ -71,7 +74,128 @@ export const EDUCATION = {
     ],
 }
 
+// FarmFix — flagship startup, spotlighted on the homepage.
+export const FARMFIX = {
+    name: 'FarmFix',
+    tagline: 'Building Technology for Agriculture',
+    kicker: 'Featured Startup',
+    summary:
+        'FarmFix helps farmers digitally manage the memory of their farm — equipment, maintenance history, repairs, and service reminders — turning scattered paper records into one reliable system.',
+    story:
+        'The inspiration comes directly from my agricultural education in Japan, where I saw first-hand how much critical knowledge lives in notebooks, receipts, and memory. FarmFix exists to solve that real problem.',
+    capabilities: [
+        { title: 'Equipment', text: 'Track every machine and asset on the farm in one place.' },
+        { title: 'Maintenance History', text: 'A complete, searchable record of what was serviced and when.' },
+        { title: 'Repair History', text: 'Log repairs, parts, and costs so nothing gets forgotten.' },
+        { title: 'Service Reminders', text: 'Stay ahead of maintenance with timely, automated reminders.' },
+        { title: 'Farm Records', text: 'Keep the whole operation organized and always accessible.' },
+    ],
+    tech: ['Next.js', 'Supabase', 'Stripe', 'Tailwind CSS', 'Google Maps', 'Vercel'],
+    live: 'https://farmfix-memory-zeta.vercel.app/',
+    image: '/projects/farmfix.jpg',
+    accent: '#3f7d4e',
+}
+
 export const PROJECTS = [{
+        name: 'FarmFix',
+
+        tagline: 'Agriculture Technology Startup',
+
+        description:
+            'A digital maintenance platform that helps farmers track equipment, service history, and repairs in one place — turning scattered paper records into a reliable digital memory for the farm. Inspired by my agricultural education in Japan.',
+
+        features: [
+            'Equipment & asset tracking',
+            'Maintenance history',
+            'Repair records',
+            'Service reminders',
+            'Digital farm records',
+            'Built to solve a real problem',
+        ],
+
+        tech: [
+            'Next.js',
+            'Supabase',
+            'Stripe',
+            'Tailwind CSS',
+            'Google Maps',
+            'Vercel',
+        ],
+
+        live: 'https://farmfix-memory-zeta.vercel.app/',
+
+        github: null,
+
+        role: 'Founder',
+
+        accent: '#3f7d4e',
+
+        image: '/projects/farmfix.jpg',
+
+        spotlight: true,
+    },
+
+    {
+        name: 'Codyza',
+
+        tagline: 'Community for Builders',
+
+        description:
+            'The company I founded — a community where developers, designers, and builders ship real projects together. I lead the engineering: the platform, contributor tooling, and the systems that connect everyone around real work.',
+
+        features: [
+            'Founder & lead engineer',
+            'Ship real projects together',
+            'Contributor platform',
+            'Community & mentorship',
+            'Full-stack engineering',
+            'Production deployments',
+        ],
+
+        tech: ['Next.js', 'React', 'Supabase', 'Node.js', 'Tailwind CSS', 'Vercel'],
+
+        live: 'https://codyza.com/',
+
+        github: null,
+
+        role: 'Founder & CEO',
+
+        accent: '#6366f1',
+
+        image: '/projects/codyza.jpg',
+    },
+
+    {
+        name: 'NepalBuddy',
+
+        tagline: 'Discover Nepal · Travel Platform',
+
+        description:
+            'A platform that helps people discover Nepal through modern technology — bringing destinations, trek agencies, hotels, activities, and traveller information into one place. Built and supported as a Codyza-sponsored project.',
+
+        features: [
+            'Destinations & experiences',
+            'Trek agencies & hotels',
+            'Activities & traveller info',
+            'Modern travel platform',
+            'Sponsored by Codyza',
+            'Nepal-focused product',
+        ],
+
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+
+        live: 'https://nepalbuddy.com',
+
+        github: null,
+
+        role: 'Sponsored by Codyza',
+
+        accent: '#f97316',
+
+        image: '/projects/nepalbuddy.jpg',
+    },
+
+    {
         name: 'TheBasicGame',
 
         tagline: 'Modern Multi-Game Gaming Platform',
@@ -103,37 +227,6 @@ export const PROJECTS = [{
         accent: '#2f8fff',
 
         image: '/projects/thebasicgame.jpg',
-    },
-
-    {
-        name: 'QuickNotes',
-
-        tagline: 'Full Stack Note-Taking Application',
-
-        description: 'A modern full-stack note-taking platform built using React, Vite, and Supabase with authentication and real-time cloud note storage.',
-
-        features: [
-            'User authentication',
-            'Session management',
-            'Real-time notes',
-            'Responsive UI',
-            'Cloud database integration',
-        ],
-
-        tech: [
-            'React.js',
-            'Vite',
-            'Supabase',
-            'JavaScript',
-            'HTML5',
-            'CSS3',
-        ],
-
-        live: 'https://6a050e4e21cb92695c78ce31--chic-cendol-30d74b.netlify.app',
-
-        github: null,
-
-        accent: '#1285ff',
     },
 
     {
@@ -317,28 +410,53 @@ export const ACHIEVEMENTS = [
     },
 ]
 
+// Articles published on Medium. `related` links an article to one of my
+// projects so readers can discover the product behind the writing.
 export const ARTICLES = [
     {
-        title: 'Critical cPanel Security Flaw Puts Millions of Websites at Risk',
-        category: 'Cybersecurity',
-        date: 'May 1, 2026',
+        title: 'Why Agriculture Is More Important Than Ever',
+        author: 'Ayush Gaire',
+        category: 'Agriculture',
+        date: '1 day ago',
         readTime: '2 min read',
-        link: 'https://medium.com/@aayushgairay/critical-cpanel-security-flaw-puts-millions-of-websites-at-risk-89dc1fdc72e9',
+        tags: ['Agriculture', 'Technology', 'FarmFix', 'Innovation', 'Food Security'],
+        link: 'https://medium.com/@aayushgairay/why-agriculture-is-more-important-than-ever-adf7aaa7da5b?source=user_profile_page---------0-------------0a3fa66ac871----------------------',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80',
+        related: {
+            name: 'FarmFix',
+            icon: 'Sprout',
+            description: 'Helping farmers digitally manage maintenance records and equipment history.',
+            href: 'https://farmfix-memory-zeta.vercel.app/',
+            cta: 'View FarmFix',
+        },
+    },
+    {
+        title: 'Stop AI Agents Before They Make Risky Moves',
+        author: 'Ayush Gaire',
+        category: 'Artificial Intelligence',
+        date: 'Jun 21, 2026',
+        readTime: '3 min read',
+        tags: ['AI', 'AI Safety', 'Security', 'Automation'],
+        link: 'https://medium.com/@aayushgairay/stop-ai-agents-before-they-make-risky-moves-af774aed4138?source=user_profile_page---------1-------------0a3fa66ac871----------------------',
         image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80',
     },
     {
         title: 'Is Nepal Really in 2083? The Doraemon Era Myth and the Reality of Time',
+        author: 'Ayush Gaire',
         category: 'Culture & Society',
         date: 'Apr 13, 2026',
         readTime: '4 min read',
+        tags: ['Nepal', 'Culture', 'History'],
         link: 'https://medium.com/@aayushgairay/is-nepal-really-in-2083-the-doraemon-era-myth-and-the-reality-of-time-2dcda627b9ae',
         image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=900&q=80',
     },
     {
         title: 'Will Artificial Intelligence Take Computer Science Jobs?',
+        author: 'Ayush Gaire',
         category: 'Artificial Intelligence',
         date: 'Apr 1, 2026',
         readTime: '3 min read',
+        tags: ['AI', 'Careers', 'Computer Science'],
         link: 'https://medium.com/@aayushgairay/will-artificial-intelligence-take-computer-science-jobs-e5c9f57a0070',
         image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=80',
     },
