@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F5F4EF"/>
+  <rect x="60" y="60" width="1080" height="510" fill="none" stroke="#D8D6CF" stroke-width="2"/>
+  <text x="100" y="150" font-family="'JetBrains Mono', monospace" font-size="20" fill="#5D5D58" letter-spacing="3">AYUSHGAIRE.COM</text>
+  <text x="100" y="310" font-family="Inter, system-ui, sans-serif" font-size="104" font-weight="600" fill="#111111" letter-spacing="-2">Ayush Gaire</text>
+  <text x="100" y="380" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="500" fill="#111111">Computer Science Student &amp; Software Engineer</text>
+  <text x="100" y="440" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="#5D5D58">Marshall, Minnesota · Southwest Minnesota State University</text>
+  <line x1="100" y1="500" x2="1100" y2="500" stroke="#D8D6CF" stroke-width="1"/>
+  <text x="100" y="540" font-family="'JetBrains Mono', monospace" font-size="18" fill="#5D5D58" letter-spacing="2">NEPALDISASTER · NAMASTE KALIKA · FORESIGHT · FARMFIX</text>
+</svg>

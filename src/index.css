@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────
+   Design tokens — monochrome, editorial.
+   Near-paper background. True black ink.
+   Single subtle neutral border.
+   No colored accents.
+   ────────────────────────────────────────── */
+:root {
+  --bg: #F2F2F0;
+  --bg-deep: #E8E8E4;
+  --surface: #FFFFFF;
+  --ink: #111111;
+  --ink-2: #5F5F5A;
+  --ink-3: #8D8D87;
+  --border: #D6D6D1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: clip;
+  width: 100%;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+#root { overflow-x: clip; width: 100%; max-width: 100vw; }
+main, section, header, footer { max-width: 100vw; overflow-x: clip; }
+
+::selection { background: rgba(17, 17, 17, 0.12); color: var(--ink); }
+
+/* Native scrollbar — subtle, monochrome */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: #B8B6AE; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #8A8A82; }
+
+/* ── Typography ── */
+.font-display { font-family: 'Inter', system-ui, sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* ── Focus ring — visible for keyboard users, hidden for mouse ── */
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Cards — restrained: thin border, light surface, no colored shadows ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card-hover:hover {
+  border-color: var(--ink);
+}
+
+/* ── Buttons — simple, high-contrast, no glow ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--ink);
+  transition: background 0.15s, color 0.15s;
+}
+.btn-primary:hover { background: #000000; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 21px;
+  border-radius: 8px;
+  border: 1px solid var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-secondary:hover { background: var(--ink); color: #FFFFFF; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--ink-3);
+  transition: text-decoration-color 0.15s;
+}
+.btn-ghost:hover { text-decoration-color: var(--ink); }
+
+/* ── Nav surface ── */
+.nav-surface {
+  background: rgba(245, 244, 239, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Label — monospace small-caps for metadata ── */
+.label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* ── Section numbering — monospace, subtle ── */
+.section-num {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0.1em;
+}
+
+.section-rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--ink-2);
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── Horizontal rules between sections ── */
+.rule { border-top: 1px solid var(--border); }
+
+/* ── Tech tag — minimal pill ── */
+.tag {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ── Timeline vertical line ── */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+
+/* ── Respect reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
